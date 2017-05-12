@@ -1,167 +1,35 @@
 
 DESCRIÇÃO DO CONTEXTO:
 
-Manter uma organização que permita fácil acesso às informações de uma biblioteca é a garantia para que esta seja bem avaliada por seus utilizadores. Esta organização só é possível na medida em que sua gestão é informatizada, em sua forma mais eficiente. Isso reflete muito na percepção da qualidade da biblioteca e de seus serviços.
+Manter uma organização que permita fácil acesso às informações de uma biblioteca é a garantia para que esta seja bem avaliada por seus utilizadores. Esta organização só é possível na medida em que sua gestão é informatizada, em sua forma mais eficiente. Isso reflete muito na percepção da qualidade da biblioteca e de seus serviços. Nesse sentido, pretende-se implementar uma estrutura de banco de dados para suprir as necessidades de persistencia de informações de um sistema para gerenciamento de bibliotecas, de acordo com as especificações a seguir.
 
 
 REQUISITOS FUNCIONAIS:
 
 
-	DEVE SER POSSIVEL PEDIR UMA CERTIDÃO DE NADA CONSTA EM QUALQUER BIBLIOTECA DO GRUPO
+	DEVE SER POSSIVEL GERENCIAR:
+		DEPARTAMENTOS
+		FUNCIONARIOS
+		BIBLIOTECAS
+		USUARIOS
+		EXEMPLARES
+		LIVROS
+		SEÇÕES
+		EDITORAS
+		AUTORES	 
 	
-
-Seleção e Aquisição
-
-• Controle de aquisições, doações, assinaturas de periódicos, permutas e orçamentos.
-
-• Recebimento e análise de sugestões de aquisições encaminhadas pelos usuários.
-
-• Aceite ou recuse solicitações de usuários, com comunicação por e-mail e no Terminal Web.
-
-• Elaboração de pedidos de aquisição a partir das sugestões dos usuários, com envio de listagens aos fornecedores para cotação.
-
-• Envio de listagens para cotação aos fornecedores por meio da internet, com login e senha exclusivos, reunindo informações de obras, quantidade e prazos para entrega, definindo data limite para recebimento dos orçamentos.
-
-• Análise dos orçamentos recebidos, com funcionalidade de formação de pedido com critérios de melhor preço, disponibilidade de entrega e prazos.
-
-• Distribuição das obras adquiridas do módulo Aquisições ao SophiA, sem necessidade de nova digitação dos dados, inserindo novos exemplares a obras já existentes ou realizando pré-catalogação de publicações novas.
-
-• Possibilidade de aquisição de publicações em moeda estrangeira, com inclusão de valores para conversão ao Real.
-
-• Registro de assinaturas de periódicos com possibilidade de criação de expectativa de chegada de fascículos, registro de recebimento, envio de cobrança ao fornecedor por atraso na entrega, distribuição de fascículos recebidos, tanto para acervo como para lista de itens disponíveis para doação.
-
-Catalogação
-
-• Capacidade ilimitada de registros.
-
-• Adoção de padrões estabelecidos para a área da biblioteconomia: AACR2, ABNT (Associação Brasileira de Normas Técnicas), MARC 21.
-
-• Não requer conhecimento prévio do formato MARC. O SophiA possui um exclusivo sistema de conversão online do padrão AACR2 (nível 3) para MARC-21 e vice-versa.
-
-• Possibilidade de inclusão, edição e visualização da ficha de cadastro no padrão AACR2, MARC (registro bibliográfico no formato MARC, com nomeação dos campos) ou MARC tags (visualização das tags com número dos campos e subcampos), configurável por operador.
-
-• Processamento de qualquer tipo de material, nos níveis monográfico e analítico, com possibilidade de criação de campos específicos de acordo com a necessidade descritiva.
-
-• Possibilidade de catalogação centralizada ou descentralizada.
-
-• Recurso de duplicação e unificação de registros.
-
-• Controle de numeração de tombos, emissão de etiquetas de códigos de barras e códigos de usuários.
-
-• Gestão completa de tabelas de termos autorizados, com controle de remissivas VER e VER TAMBÉM, controle de revisão de termos e correções em lote.
-
-• Possibilidade de anexar arquivos, links para páginas da web e imagem de referência aos registros.
-
-• Inclusão de exemplares por lote, resultando em agilidade no momento do registro de novas obras. Catalogar livros e demais materiais do seu acervo pode ser ainda mais fácil.
-
-Intercâmbio de dados (importação e exportação)
-
-• Adoção de padrões internacionais para intercâmbio de dados: MARC 21, Protocolo Z39.50, ISO2709, Protocolo OAI-PMH.
-
-• Importação de registros em MARC Autoridades e Bibliográfico.
-
-• Importação de registros bibliográficos no formato MARC, ISO2709, protocolo Z39.50 ou através do Portal SophiA (Rede de bibliotecas SophiA).
-
-• Possibilidade de importar dados de qualquer instituição que disponibilize os dados de seu catálogo nos formatos adotados pelo SophiA.
-
-• Opção de edição dos registros em MARC antes de realizar a importação.
-
-• Exportação de registros via ISO2709 e servidor Z39.50 integrado.
-
-• Opção de selecionar e salvar diversos registros em formato MARC a partir de seleção de obras no Terminal Web ou no Gerenciador.
-
-Serviços web
-
-• Serviço facilitado ao usuário: reserva, cancelamento de reserva, empréstimo, devolução e renovação online.
-
-• Acesso por número ilimitado de usuários simultâneos para consulta.
-
-• Acesso às íntegras de documentos nos mais variados formatos (texto, áudio, vídeo, etc.).
-
-• Possibilidade de aplicação de política de acesso a documentos na íntegra, definindo a visualização dos arquivos por tipo de usuário, mediante login e senha.
-
-• Relatório estatístico com os termos pesquisados no Terminal Web, informando a quantidade de ocorrências.
-
-• Seleção de obras com opção de imprimir ou enviar e-mail dos resultados em forma de lista ou referências bibliográficas.
-
-• Autonomia do usuário para informar seu perfil de interesse com dados de materiais, autores e assuntos, de acordo com as tabelas de autoridades, com envio de mensagem sempre que uma nova obra correspondente ao perfil for cadastrada.
-
-Circulação
-
-• Definição avançada de políticas de circulação por biblioteca, categoria de usuário e tipo do material.
-
-• Gestão completa do empréstimo entre bibliotecas.
-
-• Emissão de cartas de cobrança impressas ou por e-mail.
-
-• Visualização da foto do usuário na circulação.
-
-• Controle de chaves de escaninho.
-
-• Controle de consultas locais.
-
-• Opção de empréstimo por hora.
-
-• Integração com equipamentos de autoatendimento da 3M, Multisystems e IdSystems.
-
-• Recurso de biometria para empréstimos e devoluções.
-
-Gestão da biblioteca
-
-• Acesso por número ilimitado de usuários simultâneos para consulta e cadastro.
-
-• Definição de configurações gerais (por instituição) e locais (por biblioteca).
-
-• Controle de acesso ao sistema definindo perfis de usuários e permissões para inclusão, edição ou exclusão de registros e auditoria com log de operações.
-
-• Gestão de acervo e políticas de circulação em múltiplas bibliotecas pertencentes a uma mesma rede.
-
-• Múltiplos idiomas por meio do módulo Tradução.
-
-• Inventário.
-
-• Gerador de relatórios e etiquetas, permitindo a confecção de relatórios pela biblioteca ou TI.
-
-• Emissão de relatórios gerenciais e estatísticos, com possibilidade de exportação para Excel, Word e outros aplicativos.
-
-• Análise de aplicabilidade: fornece subsídios para tomada de decisão para compras ou remanejamento de publicações do acervo.
-
-• Gestão de vocabulário controlado com opção de construção de tesauro poli-hierárquico.
-
-• Gerador de coleção de fascículos de periódicos em lote, com indicação de ano final e inicial e parâmetros gerais da coleção.
-
-Biblioteca Digital
-
-• Gestão de biblioteca digital, com vinculação de mídias diversas (PDF, DOC, imagem, vídeo e som) e harvesting pelo protocolo OAI-PMH.
-
-• Visualização de mídias do repositório digital por download ou streaming.
-
-• Possibilidade de criação de diversos repositórios, separando as informações por tipo de arquivo, forma de acesso ou tipo de informação armazenada.
-
-• Uso do repositório SophiA ou integração com Dspace.
-
-• Possibilidade de aplicação de política de acesso a documentos do(s) repositório(s), definindo a visualização dos arquivos por tipo de usuário, mediante login e senha.
-
-Serviços ao usuário
-
-• Rotina completa para circulação de publicações (reserva, empréstimo, renovação e devolução).
-
-• Reservas, cancelamento de reservas e renovações pelo gerenciador ou pelo Terminal Web.
-
-• Envio de avisos por e-mail informando sobre disponibilidade de obra reservada ou vencimento de empréstimos.
-
-• Envio de e-mails notificando empréstimos, renovações, devoluções, evitando a utilização de papel.
-
-• Informação de bibliografia de curso de acordo com os dados do aluno.
-
-• Sugestão de aquisições, tanto de novos títulos como exemplares de obras já existentes.
-
-• DSI (Disseminação Seletiva da Informação), com configuração definida pelo próprio usuário final por meio da web ou pelo bibliotecário.
-
-• Referência bibliográfica de acordo com a ABNT (NBR 6023), com possibilidade de ordenação por título, número de chamada e inclusão de informações complementares como: assuntos, código de barras, notas de conteúdo, número de chamada, quantidade de exemplares e resumo.
-
-
-
-REQUISITOS NÃO FUNCIONAIS:
-
-
+	DEVE SER POSSIVEL AO USUARIO FAZER CONSULTAS AO ACERVO BEM COMO RESERVAS DE LIVROS
+	
+	DEVE SER POSSIVEL IDENTIFICAR OS USUÁRIOS QUE FIZERAM A RESERVA DE UM DETERMINATO LIVRO
+		
+	DEVE SER POSSIVEL A UM USUARIO CONSULTAR SEUS EMPRESTIMOS ATIVOS, BEM COMO AS DATAS PREVISTAS DE DEVOLUÇÃO DOS EXEMPLARES
+	
+	DEVE SER POSSIVEL CONTROLAR MULTAS POR DIAS DE ATRASO, SEGUINDO OS CRITÉRIOS DE CADA BIBLIOTECA
+	
+	DEVER SER POSSIVEL CONSULTAR A MULTA DEVIDA POR UM USUARIO AO GRUPO DE BIBLIOTECAS
+	
+	DEVE SER POSSIVEL A UM USUÁRIO PEDIR UMA CERTIDÃO DE NADA CONSTA EM QUALQUER BIBLIOTECA DO GRUPO
+	
+	DEVE SER POSSIVEL FAZER ANÁLISES DO PERFIL DOS USUÁRIOS, NO QUE TANGE PREFERENCIAS DE LIVROS POR FAIXA ETARIA E EDITORAS COM LIVROS MAIS EMPRESTADOS
+	
+	DEVE SER POSSIVEL REALIZAR A PRESTAÇÃO DE CONTAS DE VALORES RECEBIDOS A TITULO DE MULTA POR FUNCIONARIO DA BIBLIOTECA
