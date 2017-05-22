@@ -53,7 +53,9 @@ CREATE TABLE `autorlivro` (
 
 CREATE TABLE `biblioteca` (
   `id` int(11) NOT NULL,
-  `nome` varchar(50) DEFAULT NULL
+  `nome` varchar(50) DEFAULT NULL,
+  `emprestimo_dias` int(11) DEFAULT NULL,
+  `multa_diaria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
