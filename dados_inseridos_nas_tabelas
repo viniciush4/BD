@@ -1,0 +1,15 @@
+*Estou montando as estruturas. Depois vou substituir os campos com os dados reais.
+
+tabela `autor` -> varchar, varchar, int.
+INSERT INTO autor (nome, email, celular) VALUES (' ', ' ', 1);
+
+tabela `autorlivro` -> int, int.
+INSERT INTO autorlivro (autor_id, livro_id) VALUES (1, 1);
+
+tabela `biblioteca` -> varchar, int, int.
+INSERT INTO biblioteca (nome, emprestimo_dias, multa_diaria) VALUES (' ', 1, 1);
+
+tabela `departamento` -> int, varchar.
+INSERT INTO departamento (biblioteca_id, nome) VALUES (1, ' ');
+
+
