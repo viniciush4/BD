@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `autor` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `celular` int(13) DEFAULT NULL
@@ -40,7 +40,7 @@ CREATE TABLE `autor` (
 --
 
 CREATE TABLE `autorlivro` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `autor_id` int(11) DEFAULT NULL,
   `livro_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -52,7 +52,7 @@ CREATE TABLE `autorlivro` (
 --
 
 CREATE TABLE `biblioteca` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
   `emprestimo_dias` int(11) DEFAULT NULL,
   `multa_diaria` int(11) DEFAULT NULL
@@ -65,7 +65,7 @@ CREATE TABLE `biblioteca` (
 --
 
 CREATE TABLE `departamento` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `biblioteca_id` int(11) DEFAULT NULL,
   `nome` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -77,7 +77,7 @@ CREATE TABLE `departamento` (
 --
 
 CREATE TABLE `editora` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -89,7 +89,7 @@ CREATE TABLE `editora` (
 --
 
 CREATE TABLE `emprestimo` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `exemplar_id` int(11) DEFAULT NULL,
   `funcionario_id` int(11) DEFAULT NULL,
   `usuario_id` int(11) DEFAULT NULL
@@ -102,7 +102,7 @@ CREATE TABLE `emprestimo` (
 --
 
 CREATE TABLE `exemplar` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `livro_id` int(11) DEFAULT NULL,
   `secao_biblioteca_id` int(11) DEFAULT NULL,
   `datacadastro` datetime DEFAULT NULL,
@@ -116,7 +116,7 @@ CREATE TABLE `exemplar` (
 --
 
 CREATE TABLE `funcionario` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `departamento_id` int(11) DEFAULT NULL,
   `nome` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE `funcionario` (
 --
 
 CREATE TABLE `livro` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `editora_id` int(11) DEFAULT NULL,
   `titulo` varchar(50) DEFAULT NULL,
   `ano` year(4) DEFAULT NULL,
@@ -146,7 +146,7 @@ CREATE TABLE `livro` (
 --
 
 CREATE TABLE `palavrachave` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `palavra` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -157,7 +157,7 @@ CREATE TABLE `palavrachave` (
 --
 
 CREATE TABLE `palavrachavelivro` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `palavra_chave_id` int(11) DEFAULT NULL,
   `livro_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -169,7 +169,7 @@ CREATE TABLE `palavrachavelivro` (
 --
 
 CREATE TABLE `reserva` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `exemplar_id` int(11) DEFAULT NULL,
   `usuario_id` int(11) DEFAULT NULL,
   `data` datetime DEFAULT NULL,
@@ -183,7 +183,7 @@ CREATE TABLE `reserva` (
 --
 
 CREATE TABLE `secao` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -194,7 +194,7 @@ CREATE TABLE `secao` (
 --
 
 CREATE TABLE `secaobiblioteca` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `secao_id` int(11) DEFAULT NULL,
   `biblioteca_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -206,7 +206,7 @@ CREATE TABLE `secaobiblioteca` (
 --
 
 CREATE TABLE `usuario` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `celular` int(11) DEFAULT NULL,
@@ -220,7 +220,7 @@ CREATE TABLE `usuario` (
 --
 
 CREATE TABLE `usuariobiblioteca` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `biblioteca_id` int(11) DEFAULT NULL,
   `usuario_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
