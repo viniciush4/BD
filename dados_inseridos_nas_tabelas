@@ -1,5 +1,9 @@
 *Estou montando as estruturas. Depois vou substituir os campos com os dados reais.
 
+*Perguntas: 
+-Qual a funcionalidade do tipo "tinyint"?
+-Deixar "celular" ou "telefone"?
+
 tabela `autor` -> varchar, varchar, int.
 INSERT INTO autor (nome, email, celular) VALUES (' ', ' ', 1);
 
@@ -11,5 +15,20 @@ INSERT INTO biblioteca (nome, emprestimo_dias, multa_diaria) VALUES (' ', 1, 1);
 
 tabela `departamento` -> int, varchar.
 INSERT INTO departamento (biblioteca_id, nome) VALUES (1, ' ');
+
+tabela `editora` -> varchar, varchar.
+INSERT INTO editora (nome, email) VALUES (' ', ' ');
+
+tabela `emprestimo` -> int, int, int.
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id) VALUES (1, 1, 1);
+
+tabela `exemplar` -> int, int, datetime, tinyint.
+INSERT INTO exemplar (livro_id, secao_biblioteca_id, datacadastro, emprestado) VALUES (1, 1, '1/1/1', 1);
+
+tabela `funcionario` -> int, varchar, varchar, int, tinyint, datetime.
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (1, ' ', ' ', 1, 1, '1/1/1');
+
+tabela `livro` -> int, varchar, year, int.
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (int, ' ', ' ', 1);
 
 
