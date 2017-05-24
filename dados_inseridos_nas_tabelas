@@ -1,8 +1,10 @@
 *Estou montando as estruturas. Depois vou substituir os campos com os dados reais.
 
 *Perguntas: 
--Qual a funcionalidade do tipo "tinyint"?
+-Qual a funcionalidade do tipo "tinyint"?  
+	É como um inteiro de um dígito. Serve como booleano. Quando escolhemos o tipo boolean no banco ele tranforma em tinyint
 -Deixar "celular" ou "telefone"?
+	Deixa celular, como o gustavo fez
 
 tabela `autor` -> varchar, varchar, int.
 INSERT INTO autor (nome, email, celular) VALUES (' ', ' ', 1);
