@@ -1,6 +1,9 @@
 *Estou montando as estruturas. Depois vou substituir os campos com os dados reais.
 
 *Perguntas: 
+-O nome das tabelas deveriam seguir o padrão CamelCase?
+
+
 -Qual a funcionalidade do tipo "tinyint"?  
 	É como um inteiro de um dígito. Serve como booleano. Quando escolhemos o tipo boolean no banco ele tranforma em tinyint
 -Deixar "celular" ou "telefone"?
@@ -32,5 +35,28 @@ INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_con
 
 tabela `livro` -> int, varchar, year, int.
 INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (int, ' ', ' ', 1);
+
+tabela `palavrachave` -> varchar.
+INSERT INTO palavrachave (palavra) VALUES (' ');
+
+tabela `palavrachavelivro`
+INSERT INTO palavrachavelivro (palavra_chave_id, livro_id) VALUES (1, 1);
+
+tabela `reserva` -> int, int, datetime, tinyint.
+INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (1, 1, '1/1/1', 1);
+
+tabela `secao`
+INSERT INTO secao (nome) VALUES (' ');
+
+tabela `secaobiblioteca` -> int, int.
+INSERT INTO secaobiblioteca (secao_id, biblioteca_id) VALUES (1, 1);
+
+tabela `usuario` -> varchar, varchar, int, tinyint.
+INSERT INTO usuario (nome, email, celular, status) VALUES (' ', ' ', 1, 1);
+
+tabela `usuariobiblioteca` -> int, int.
+INSERT INTO usuariobiblioteca (biblioteca_id, usuario_id) VALUES (1, 1);
+
+
 
 
