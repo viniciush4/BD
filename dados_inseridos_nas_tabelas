@@ -1,19 +1,30 @@
 *Estou montando as estruturas. Depois vou substituir os campos com os dados reais.
 
+
+
 *Perguntas: 
 -O nome das tabelas deveriam seguir o padrão CamelCase?
+	Não. O nome das tabelas serão em minusculo. Quando houver duas palavras, separa-se com "_". EX: autor_livro
 
 
 -Qual a funcionalidade do tipo "tinyint"?  
 	É como um inteiro de um dígito. Serve como booleano. Quando escolhemos o tipo boolean no banco ele tranforma em tinyint
+	
 -Deixar "celular" ou "telefone"?
-	Deixa celular, como o gustavo fez
+	Deixa celular, como o Gustavo fez.
+
+
+*Observações:
+- Vamos preencher as tabelas com valores reais. Nada de 'teste' algo assim.
+- O id é auto_increment, então não precisamos (nem devemos) informá-lo nos inserts.
+
+
 
 tabela `autor` -> varchar, varchar, int.
 INSERT INTO autor (nome, email, celular) VALUES (' ', ' ', 1);
 
-tabela `autorlivro` -> int, int.
-INSERT INTO autorlivro (autor_id, livro_id) VALUES (1, 1);
+tabela `autor_livro` -> int, int.
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (1, 1);
 
 tabela `biblioteca` -> varchar, int, int.
 INSERT INTO biblioteca (nome, emprestimo_dias, multa_diaria) VALUES (' ', 1, 1);
@@ -36,11 +47,11 @@ INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_con
 tabela `livro` -> int, varchar, year, int.
 INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (int, ' ', ' ', 1);
 
-tabela `palavrachave` -> varchar.
-INSERT INTO palavrachave (palavra) VALUES (' ');
+tabela `palavra_chave` -> varchar.
+INSERT INTO palavra_chave (palavra) VALUES (' ');
 
-tabela `palavrachavelivro`
-INSERT INTO palavrachavelivro (palavra_chave_id, livro_id) VALUES (1, 1);
+tabela `palavra_chave_livro`
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (1, 1);
 
 tabela `reserva` -> int, int, datetime, tinyint.
 INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (1, 1, '1/1/1', 1);
@@ -48,130 +59,94 @@ INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (1, 1, '1/1/1
 tabela `secao`
 INSERT INTO secao (nome) VALUES (' ');
 
-tabela `secaobiblioteca` -> int, int.
-INSERT INTO secaobiblioteca (secao_id, biblioteca_id) VALUES (1, 1);
+tabela `secao_biblioteca` -> int, int.
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (1, 1);
 
 tabela `usuario` -> varchar, varchar, int, tinyint.
 INSERT INTO usuario (nome, email, celular, status) VALUES (' ', ' ', 1, 1);
 
-tabela `usuariobiblioteca` -> int, int.
-INSERT INTO usuariobiblioteca (biblioteca_id, usuario_id) VALUES (1, 1);
+tabela `usuario_biblioteca` -> int, int.
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (1, 1);
+
+tabela 'multa' -> int, int, date, decimal(3,2)
+INSERT INTO multa (funcionario_id, emprestimo_id, data_recebimento, valor) VALUES (1, 1, '1/1/1', 1);
+
 
 
 -----------A partir daqui o que eu comecei a criar
 
-INSERT INTO `autor` (`id`, `nome`, `email`, `celular`) VALUES
-(1, 'Miguel de Cervantes', 'mdecev@gmail.com', 2147483647),
-(2, 'Charles Dickens', 'charsdick@gmail.com', 2147483647),
-(3, 'Paulo Coelho', 'paulocoelho@gmail.com', 2147483647),
-(4, 'J. R. R. Tolkien', 'jrrtolkien@gmail.com', 2147483647),
-(5, 'Antoine de Saint-ExupÃ©ry', 'antoine@gmail.com', 2147483647),
-(6, 'J. K. Rowling', 'jkrowling@gmail.com', 12345678),
-(7, 'Agatha Christie', 'agchris@gmail.com', 12345677),
-(8, 'Cao Xueqin', 'cao@gmail.com', 11223456),
-(9, 'H. Rider Haggard', 'hhaggard@gmail.com', 11234567),
-(10, 'C. S. Lewis', 'cslewis@gmail.com', 11111111),
-(11, 'Douglas Adams', 'doug@gmail.com', 22222222),
-(12, 'Lewis Carrol', 'Lewis@gmail.com', 33333333),
-(13, 'Sir Conan Doyle', 'conDoyle@gmail.com', 44444444);
+INSERT INTO `autor` (`nome`, `email`, `celular`) VALUES
+('Miguel de Cervantes', 'mdecev@gmail.com', 2147483647),
+('Charles Dickens', 'charsdick@gmail.com', 2147483647),
+('Paulo Coelho', 'paulocoelho@gmail.com', 2147483647),
+('J. R. R. Tolkien', 'jrrtolkien@gmail.com', 2147483647),
+('Antoine de Saint-ExupÃ©ry', 'antoine@gmail.com', 2147483647),
+('J. K. Rowling', 'jkrowling@gmail.com', 12345678),
+('Agatha Christie', 'agchris@gmail.com', 12345677),
+('Cao Xueqin', 'cao@gmail.com', 11223456),
+('H. Rider Haggard', 'hhaggard@gmail.com', 11234567),
+('C. S. Lewis', 'cslewis@gmail.com', 11111111),
+('Douglas Adams', 'doug@gmail.com', 22222222),
+('Lewis Carrol', 'Lewis@gmail.com', 33333333),
+('Sir Conan Doyle', 'conDoyle@gmail.com', 44444444);
 
 --
 -- Extraindo dados da tabela `biblioteca`
 --
 
-INSERT INTO `biblioteca` (`id`, `nome`) VALUES
-(1000, 'Nascimento'),
-(1001, 'Berger'),
-(1002, 'Duarte'),
-(1003, 'Monjardim'),
-(1004, 'Dalapicola'),
-(1005, 'Yamada'),
-(1006, 'Barreto'),
-(1007, 'Scopel'),
-(1008, 'Borlini'),
-(1009, 'Souza');
+INSERT INTO `biblioteca` (`nome`) VALUES
+('Nascimento'),
+('Berger'),
+('Duarte'),
+('Monjardim'),
+('Dalapicola'),
+('Yamada'),
+('Barreto'),
+('Scopel'),
+('Borlini'),
+('Souza');
 
 --
 -- Extraindo dados da tabela `editora`
 --
 
-INSERT INTO `editora` (`id`, `nome`, `email`) VALUES
-(101010, 'leozin', 'leozin@gmail.com'),
-(111111, 'Pearson', 'pearson@gmail.com'),
-(222222, 'Reed Elsevier', 'reedelsevier@gmail.com'),
-(333333, 'ThomsonReuters', 'thomsonreuter@gmail.com'),
-(444444, 'Wolters Kluwer', 'wolterskluwer@gmail.com'),
-(555555, 'Hachette Livre', 'hachettelivre@gmail.com'),
-(666666, 'Grupo Planeta', 'grupoplaneta@gmail.com'),
-(777777, 'Abril', 'abril@gmail.com'),
-(888888, 'Saraiva', 'saraiva@gmail.com'),
-(999999, 'Editora FTD', 'ftd@gmail.com');
+INSERT INTO `editora` (`nome`, `email`) VALUES
+('leozin', 'leozin@gmail.com'),
+('Pearson', 'pearson@gmail.com'),
+('Reed Elsevier', 'reedelsevier@gmail.com'),
+('ThomsonReuters', 'thomsonreuter@gmail.com'),
+('Wolters Kluwer', 'wolterskluwer@gmail.com'),
+('Hachette Livre', 'hachettelivre@gmail.com'),
+('Grupo Planeta', 'grupoplaneta@gmail.com'),
+('Abril', 'abril@gmail.com'),
+('Saraiva', 'saraiva@gmail.com'),
+('Editora FTD', 'ftd@gmail.com');
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nome`, `email`, `celular`, `status`) VALUES
-(2014001, 'Logan', 'wolverine@gmail.com', 12121212, 0),
-(2014002, 'Xavier', 'charles@gmail.com', 12121212, 1),
-(2014003, 'Vampira', 'vamp@gmai.com', 13131313, 0),
-(2014004, 'Tempestade', 'tempestade@gmail.com', 14141414, 0),
-(2014005, 'Magneto', 'erik@gmail.com', 15151515, 1),
-(2014006, 'Mistica', 'raven@gmail.com', 16161616, 0),
-(2014007, 'Cyclope', 'summers@gmail.com', 18181818, 0),
-(2014008, 'Jean Gray', 'jean@gmail.com', 17171717, 1),
-(2014009, 'Fera', 'ph@gmail.com', 20202020, 0),
-(2014010, 'Colosso', 'peter@gmailcom', 21212121, 1),
-(2014011, 'Juggernaut', 'cain@gmail.com', 22222222, 0),
-(2014012, 'Feiticeira escarlate', 'wanda@gmail.com', 23232323, 1),
-(2014013, 'Mercurio', 'pietro@gmail.com', 24242424, 0),
-(2014014, 'X-23', 'laura@gmai.com', 25252525, 1);
+INSERT INTO `usuario` (`nome`, `email`, `celular`, `status`) VALUES
+('Logan', 'wolverine@gmail.com', 12121212, 0),
+('Xavier', 'charles@gmail.com', 12121212, 1),
+('Vampira', 'vamp@gmai.com', 13131313, 0),
+('Tempestade', 'tempestade@gmail.com', 14141414, 0),
+('Magneto', 'erik@gmail.com', 15151515, 1),
+('Mistica', 'raven@gmail.com', 16161616, 0),
+('Cyclope', 'summers@gmail.com', 18181818, 0),
+('Jean Gray', 'jean@gmail.com', 17171717, 1),
+('Fera', 'ph@gmail.com', 20202020, 0),
+('Colosso', 'peter@gmailcom', 21212121, 1),
+('Juggernaut', 'cain@gmail.com', 22222222, 0),
+('Feiticeira escarlate', 'wanda@gmail.com', 23232323, 1),
+('Mercurio', 'pietro@gmail.com', 24242424, 0),
+('X-23', 'laura@gmai.com', 25252525, 1);
 
 --
 -- Extraindo dados da tabela `usuariobiblioteca`
 --
 
-INSERT INTO `usuariobiblioteca` (`id`, `biblioteca_id`, `usuario_id`) VALUES
-(100, 1000, 2014001),
-(101, 1000, 2014002),
-(102, 1000, 2014003),
-(103, 1000, 2014004),
-(104, 1004, 2014007),
-(105, 1004, 2014013),
-(106, 1001, 2014007),
-(107, 1001, 2014008),
-(108, 1001, 2014009),
-(109, 1001, 2014010),
-(110, 1001, 2014011),
-(111, 1001, 2014012),
-(112, 1002, 2014002),
-(113, 1002, 2014004),
-(114, 1002, 2014006),
-(115, 1002, 2014008),
-(116, 1002, 2014010),
-(117, 1002, 2014012),
-(118, 1003, 2014001),
-(119, 1003, 2014003),
-(120, 1003, 2014005),
-(121, 1003, 2014007),
-(122, 1004, 2014009),
-(123, 1004, 2014011),
-(124, 1005, 2014001),
-(125, 1005, 2014002),
-(126, 1005, 2014013),
-(127, 1005, 2014014),
-(128, 1006, 2014007),
-(129, 1006, 2014008),
-(130, 1006, 2014011),
-(131, 1006, 2014014),
-(132, 1007, 2014002),
-(133, 1007, 2014009),
-(134, 1007, 2014010),
-(135, 1007, 2014008),
-(136, 1007, 2014014),
-(137, 1008, 2014013),
-(138, 1008, 2014003),
-(139, 1008, 2014006);
+INSERT INTO `usuario_biblioteca` (`biblioteca_id`, `usuario_id`) VALUES
 
 
 
