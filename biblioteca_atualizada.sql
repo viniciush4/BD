@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 25-Maio-2017 às 03:40
+-- Generation Time: 25-Maio-2017 às 03:58
 -- Versão do servidor: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -378,12 +378,12 @@ ALTER TABLE `usuariobiblioteca`
 -- AUTO_INCREMENT for table `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `autorlivro`
 --
 ALTER TABLE `autorlivro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `biblioteca`
 --
@@ -418,7 +418,7 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT for table `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `multa`
 --
