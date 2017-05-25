@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: 25-Maio-2017 às 03:58
--- Versão do servidor: 10.1.22-MariaDB
--- PHP Version: 7.1.4
+-- Host: localhost
+-- Generation Time: 25-Maio-2017 às 13:30
+-- Versão do servidor: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -21,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `biblioteca`
 --
+CREATE DATABASE IF NOT EXISTS `biblioteca` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `biblioteca`;
 
 -- --------------------------------------------------------
 
@@ -30,22 +30,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `autor` (
   `id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `email` varchar(50) DEFAULT NULL,
+  `nome` varchar(50) COLLATE utf8_bin NOT NULL,
+  `email` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `celular` int(13) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `autorlivro`
+-- Estrutura da tabela `autor_livro`
 --
 
-CREATE TABLE `autorlivro` (
+CREATE TABLE `autor_livro` (
   `id` int(11) NOT NULL,
   `autor_id` int(11) NOT NULL,
   `livro_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -55,10 +55,10 @@ CREATE TABLE `autorlivro` (
 
 CREATE TABLE `biblioteca` (
   `id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
+  `nome` varchar(50) COLLATE utf8_bin NOT NULL,
   `emprestimo_dias` int(11) NOT NULL DEFAULT '15',
   `multa_diaria` decimal(2,2) NOT NULL DEFAULT '0.00'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -69,8 +69,8 @@ CREATE TABLE `biblioteca` (
 CREATE TABLE `departamento` (
   `id` int(11) NOT NULL,
   `biblioteca_id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `nome` varchar(50) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -80,9 +80,9 @@ CREATE TABLE `departamento` (
 
 CREATE TABLE `editora` (
   `id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `email` varchar(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `nome` varchar(50) COLLATE utf8_bin NOT NULL,
+  `email` varchar(50) COLLATE utf8_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -98,7 +98,7 @@ CREATE TABLE `emprestimo` (
   `data_emprestimo` datetime NOT NULL,
   `data_devolucao` datetime NOT NULL,
   `valor_multa` decimal(3,2) NOT NULL DEFAULT '0.00'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -112,7 +112,7 @@ CREATE TABLE `exemplar` (
   `secao_biblioteca_id` int(11) NOT NULL,
   `data_cadastro` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `emprestado` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -123,12 +123,12 @@ CREATE TABLE `exemplar` (
 CREATE TABLE `funcionario` (
   `id` int(11) NOT NULL,
   `departamento_id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `email` varchar(50) DEFAULT NULL,
+  `nome` varchar(50) COLLATE utf8_bin NOT NULL,
+  `email` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `celular` int(11) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `data_contratacao` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -139,10 +139,10 @@ CREATE TABLE `funcionario` (
 CREATE TABLE `livro` (
   `id` int(11) NOT NULL,
   `editora_id` int(11) NOT NULL,
-  `titulo` varchar(50) NOT NULL,
+  `titulo` varchar(50) COLLATE utf8_bin NOT NULL,
   `ano` year(4) NOT NULL,
   `isbn` int(13) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -156,30 +156,30 @@ CREATE TABLE `multa` (
   `emprestimo_id` int(11) NOT NULL,
   `data_recebimento` datetime NOT NULL,
   `valor` decimal(3,2) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `palavrachave`
+-- Estrutura da tabela `palavra_chave`
 --
 
-CREATE TABLE `palavrachave` (
+CREATE TABLE `palavra_chave` (
   `id` int(11) NOT NULL,
-  `palavra` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `palavra` varchar(50) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `palavrachavelivro`
+-- Estrutura da tabela `palavra_chave_livro`
 --
 
-CREATE TABLE `palavrachavelivro` (
+CREATE TABLE `palavra_chave_livro` (
   `id` int(11) NOT NULL,
   `palavra_chave_id` int(11) NOT NULL,
   `livro_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -193,7 +193,7 @@ CREATE TABLE `reserva` (
   `usuario_id` int(11) NOT NULL,
   `data` datetime NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -203,20 +203,20 @@ CREATE TABLE `reserva` (
 
 CREATE TABLE `secao` (
   `id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `nome` varchar(50) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `secaobiblioteca`
+-- Estrutura da tabela `secao_biblioteca`
 --
 
-CREATE TABLE `secaobiblioteca` (
+CREATE TABLE `secao_biblioteca` (
   `id` int(11) NOT NULL,
   `secao_id` int(11) NOT NULL,
   `biblioteca_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -226,24 +226,24 @@ CREATE TABLE `secaobiblioteca` (
 
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `email` varchar(50) DEFAULT NULL,
+  `nome` varchar(50) COLLATE utf8_bin NOT NULL,
+  `email` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `celular` int(11) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `data_nascimento` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuariobiblioteca`
+-- Estrutura da tabela `usuario_biblioteca`
 --
 
-CREATE TABLE `usuariobiblioteca` (
+CREATE TABLE `usuario_biblioteca` (
   `id` int(11) NOT NULL,
   `biblioteca_id` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Indexes for dumped tables
@@ -256,9 +256,9 @@ ALTER TABLE `autor`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `autorlivro`
+-- Indexes for table `autor_livro`
 --
-ALTER TABLE `autorlivro`
+ALTER TABLE `autor_livro`
   ADD PRIMARY KEY (`id`),
   ADD KEY `autor_id` (`autor_id`),
   ADD KEY `livro_id` (`livro_id`);
@@ -310,29 +310,30 @@ ALTER TABLE `funcionario`
 -- Indexes for table `livro`
 --
 ALTER TABLE `livro`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `editora_id` (`editora_id`);
 
 --
 -- Indexes for table `multa`
 --
 ALTER TABLE `multa`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `multa_ibfk_1` (`funcionario_id`),
-  ADD KEY `multa_ibfk_2` (`emprestimo_id`);
+  ADD KEY `funcionario_id` (`funcionario_id`),
+  ADD KEY `emprestimo_id` (`emprestimo_id`);
 
 --
--- Indexes for table `palavrachave`
+-- Indexes for table `palavra_chave`
 --
-ALTER TABLE `palavrachave`
+ALTER TABLE `palavra_chave`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `palavrachavelivro`
+-- Indexes for table `palavra_chave_livro`
 --
-ALTER TABLE `palavrachavelivro`
+ALTER TABLE `palavra_chave_livro`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `livro_id` (`livro_id`),
-  ADD KEY `palavra_chave_id` (`palavra_chave_id`);
+  ADD KEY `palavra_chave_id` (`palavra_chave_id`),
+  ADD KEY `livro_id` (`livro_id`);
 
 --
 -- Indexes for table `reserva`
@@ -349,9 +350,9 @@ ALTER TABLE `secao`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `secaobiblioteca`
+-- Indexes for table `secao_biblioteca`
 --
-ALTER TABLE `secaobiblioteca`
+ALTER TABLE `secao_biblioteca`
   ADD PRIMARY KEY (`id`),
   ADD KEY `secao_id` (`secao_id`),
   ADD KEY `biblioteca_id` (`biblioteca_id`);
@@ -363,9 +364,9 @@ ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuariobiblioteca`
+-- Indexes for table `usuario_biblioteca`
 --
-ALTER TABLE `usuariobiblioteca`
+ALTER TABLE `usuario_biblioteca`
   ADD PRIMARY KEY (`id`),
   ADD KEY `biblioteca_id` (`biblioteca_id`),
   ADD KEY `usuario_id` (`usuario_id`);
@@ -378,12 +379,12 @@ ALTER TABLE `usuariobiblioteca`
 -- AUTO_INCREMENT for table `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `autorlivro`
+-- AUTO_INCREMENT for table `autor_livro`
 --
-ALTER TABLE `autorlivro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `autor_livro`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `biblioteca`
 --
@@ -418,21 +419,21 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT for table `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `multa`
 --
 ALTER TABLE `multa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `palavrachave`
+-- AUTO_INCREMENT for table `palavra_chave`
 --
-ALTER TABLE `palavrachave`
+ALTER TABLE `palavra_chave`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `palavrachavelivro`
+-- AUTO_INCREMENT for table `palavra_chave_livro`
 --
-ALTER TABLE `palavrachavelivro`
+ALTER TABLE `palavra_chave_livro`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `reserva`
@@ -445,9 +446,9 @@ ALTER TABLE `reserva`
 ALTER TABLE `secao`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `secaobiblioteca`
+-- AUTO_INCREMENT for table `secao_biblioteca`
 --
-ALTER TABLE `secaobiblioteca`
+ALTER TABLE `secao_biblioteca`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `usuario`
@@ -455,10 +456,88 @@ ALTER TABLE `secaobiblioteca`
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `usuariobiblioteca`
+-- AUTO_INCREMENT for table `usuario_biblioteca`
 --
-ALTER TABLE `usuariobiblioteca`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+ALTER TABLE `usuario_biblioteca`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `autor_livro`
+--
+ALTER TABLE `autor_livro`
+  ADD CONSTRAINT `autor_livro_ibfk_1` FOREIGN KEY (`autor_id`) REFERENCES `autor` (`id`),
+  ADD CONSTRAINT `autor_livro_ibfk_2` FOREIGN KEY (`livro_id`) REFERENCES `livro` (`id`);
+
+--
+-- Limitadores para a tabela `departamento`
+--
+ALTER TABLE `departamento`
+  ADD CONSTRAINT `departamento_ibfk_1` FOREIGN KEY (`biblioteca_id`) REFERENCES `biblioteca` (`id`);
+
+--
+-- Limitadores para a tabela `emprestimo`
+--
+ALTER TABLE `emprestimo`
+  ADD CONSTRAINT `emprestimo_ibfk_1` FOREIGN KEY (`exemplar_id`) REFERENCES `exemplar` (`id`),
+  ADD CONSTRAINT `emprestimo_ibfk_2` FOREIGN KEY (`funcionario_id`) REFERENCES `funcionario` (`id`),
+  ADD CONSTRAINT `emprestimo_ibfk_3` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`);
+
+--
+-- Limitadores para a tabela `exemplar`
+--
+ALTER TABLE `exemplar`
+  ADD CONSTRAINT `exemplar_ibfk_1` FOREIGN KEY (`livro_id`) REFERENCES `livro` (`id`),
+  ADD CONSTRAINT `exemplar_ibfk_2` FOREIGN KEY (`secao_biblioteca_id`) REFERENCES `secao_biblioteca` (`id`);
+
+--
+-- Limitadores para a tabela `funcionario`
+--
+ALTER TABLE `funcionario`
+  ADD CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`departamento_id`) REFERENCES `departamento` (`id`);
+
+--
+-- Limitadores para a tabela `livro`
+--
+ALTER TABLE `livro`
+  ADD CONSTRAINT `livro_ibfk_1` FOREIGN KEY (`editora_id`) REFERENCES `editora` (`id`);
+
+--
+-- Limitadores para a tabela `multa`
+--
+ALTER TABLE `multa`
+  ADD CONSTRAINT `multa_ibfk_1` FOREIGN KEY (`funcionario_id`) REFERENCES `funcionario` (`id`),
+  ADD CONSTRAINT `multa_ibfk_2` FOREIGN KEY (`emprestimo_id`) REFERENCES `emprestimo` (`id`);
+
+--
+-- Limitadores para a tabela `palavra_chave_livro`
+--
+ALTER TABLE `palavra_chave_livro`
+  ADD CONSTRAINT `palavra_chave_livro_ibfk_1` FOREIGN KEY (`palavra_chave_id`) REFERENCES `palavra_chave` (`id`),
+  ADD CONSTRAINT `palavra_chave_livro_ibfk_2` FOREIGN KEY (`livro_id`) REFERENCES `livro` (`id`);
+
+--
+-- Limitadores para a tabela `reserva`
+--
+ALTER TABLE `reserva`
+  ADD CONSTRAINT `reserva_ibfk_1` FOREIGN KEY (`exemplar_id`) REFERENCES `exemplar` (`id`),
+  ADD CONSTRAINT `reserva_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`);
+
+--
+-- Limitadores para a tabela `secao_biblioteca`
+--
+ALTER TABLE `secao_biblioteca`
+  ADD CONSTRAINT `secao_biblioteca_ibfk_1` FOREIGN KEY (`secao_id`) REFERENCES `secao` (`id`),
+  ADD CONSTRAINT `secao_biblioteca_ibfk_2` FOREIGN KEY (`biblioteca_id`) REFERENCES `biblioteca` (`id`);
+
+--
+-- Limitadores para a tabela `usuario_biblioteca`
+--
+ALTER TABLE `usuario_biblioteca`
+  ADD CONSTRAINT `usuario_biblioteca_ibfk_1` FOREIGN KEY (`biblioteca_id`) REFERENCES `biblioteca` (`id`),
+  ADD CONSTRAINT `usuario_biblioteca_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
