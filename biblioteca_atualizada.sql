@@ -1,3 +1,4 @@
+﻿--
 -- phpMyAdmin SQL Dump
 -- version 4.5.2
 -- http://www.phpmyadmin.net
@@ -7,8 +8,8 @@
 -- Versão do servidor: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET SQL_MODE = 'NO_AUTO_VALUE_ON_ZERO';
+SET time_zone = '+00:00';
 
 --
 -- Database: biblioteca
@@ -47,7 +48,6 @@ CREATE TABLE IF NOT EXISTS autor (
   id int(11) NOT NULL AUTO_INCREMENT,
   nome varchar(50) COLLATE utf8_bin NOT NULL,
   email varchar(50) COLLATE utf8_bin DEFAULT NULL,
-  celular int(13) DEFAULT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -70,8 +70,8 @@ CREATE TABLE IF NOT EXISTS usuario (
   id int(11) NOT NULL AUTO_INCREMENT,
   nome varchar(50) COLLATE utf8_bin NOT NULL,
   email varchar(50) COLLATE utf8_bin DEFAULT NULL,
-  celular int(11) DEFAULT NULL,
-  status tinyint(1) NOT NULL DEFAULT 1,
+  celular varchar(11) DEFAULT NULL,
+  status enum('ativo','inativo') NOT NULL DEFAULT 'ativo',
   data_nascimento datetime NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS livro (
   editora_id int(11) NOT NULL,
   titulo varchar(50) COLLATE utf8_bin NOT NULL,
   ano year(4) NOT NULL,
-  isbn int(13) NOT NULL,
+  isbn varchar(13) NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (editora_id) REFERENCES editora (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -147,7 +147,7 @@ CREATE TABLE IF NOT EXISTS exemplar (
   livro_id int(11) NOT NULL,
   secao_biblioteca_id int(11) NOT NULL,
   data_cadastro datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  emprestado tinyint(1) NOT NULL DEFAULT 0,
+  status enum('emprestado','devolvido') NOT NULL DEFAULT 'devolvido',
   PRIMARY KEY (id),
   FOREIGN KEY (livro_id) REFERENCES livro (id),
   FOREIGN KEY (secao_biblioteca_id) REFERENCES secao_biblioteca (id)
@@ -162,8 +162,8 @@ CREATE TABLE IF NOT EXISTS funcionario (
   departamento_id int(11) NOT NULL,
   nome varchar(50) COLLATE utf8_bin NOT NULL,
   email varchar(50) COLLATE utf8_bin DEFAULT NULL,
-  celular int(11) DEFAULT NULL,
-  status tinyint(1) NOT NULL DEFAULT 1,
+  celular varchar(11) DEFAULT NULL,
+  status enum('ativo','inativo') NOT NULL DEFAULT 'ativo',
   data_contratacao datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (departamento_id) REFERENCES departamento (id)
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS reserva (
   exemplar_id int(11) NOT NULL,
   usuario_id int(11) NOT NULL,
   data datetime NOT NULL,
-  status tinyint(1) NOT NULL DEFAULT 1,
+  status enum('ativa','inativa') NOT NULL DEFAULT 'ativa',
   PRIMARY KEY (id),
   FOREIGN KEY (exemplar_id) REFERENCES exemplar (id),
   FOREIGN KEY (usuario_id) REFERENCES usuario (id)

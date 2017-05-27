@@ -1,4 +1,4 @@
-*Estou montando as estruturas. Depois vou substituir os campos com os dados reais.
+﻿*Estou montando as estruturas. Depois vou substituir os campos com os dados reais.
 
 
 
@@ -75,20 +75,20 @@ INSERT INTO multa (funcionario_id, emprestimo_id, data_recebimento, valor) VALUE
 
 -----------A partir daqui o que eu comecei a criar
 
-INSERT INTO `autor` (`nome`, `email`, `celular`) VALUES
-('Miguel de Cervantes', 'mdecev@gmail.com', 2147483647),
-('Charles Dickens', 'charsdick@gmail.com', 2147483647),
-('Paulo Coelho', 'paulocoelho@gmail.com', 2147483647),
-('J. R. R. Tolkien', 'jrrtolkien@gmail.com', 2147483647),
-('Antoine de Saint-ExupÃ©ry', 'antoine@gmail.com', 2147483647),
-('J. K. Rowling', 'jkrowling@gmail.com', 12345678),
-('Agatha Christie', 'agchris@gmail.com', 12345677),
-('Cao Xueqin', 'cao@gmail.com', 11223456),
-('H. Rider Haggard', 'hhaggard@gmail.com', 11234567),
-('C. S. Lewis', 'cslewis@gmail.com', 11111111),
-('Douglas Adams', 'doug@gmail.com', 22222222),
-('Lewis Carrol', 'Lewis@gmail.com', 33333333),
-('Sir Conan Doyle', 'conDoyle@gmail.com', 44444444);
+INSERT INTO `autor` (`nome`, `email`) VALUES
+('Miguel de Cervantes', 'mdecev@gmail.com'),
+('Charles Dickens', 'charsdick@gmail.com'),
+('Paulo Coelho', 'paulocoelho@gmail.com'),
+('J. R. R. Tolkien', 'jrrtolkien@gmail.com'),
+('Antoine de Saint-ExupÃ©ry', 'antoine@gmail.com'),
+('J. K. Rowling', 'jkrowling@gmail.com'),
+('Agatha Christie', 'agchris@gmail.com'),
+('Cao Xueqin', 'cao@gmail.com'),
+('H. Rider Haggard', 'hhaggard@gmail.com'),
+('C. S. Lewis', 'cslewis@gmail.com'),
+('Douglas Adams', 'doug@gmail.com'),
+('Lewis Carrol', 'Lewis@gmail.com'),
+('Sir Conan Doyle', 'conDoyle@gmail.com');
 
 --
 -- Extraindo dados da tabela `biblioteca`
@@ -127,26 +127,20 @@ INSERT INTO `editora` (`nome`, `email`) VALUES
 --
 
 INSERT INTO `usuario` (`nome`, `email`, `celular`, `status`) VALUES
-('Logan', 'wolverine@gmail.com', 12121212, 0),
-('Xavier', 'charles@gmail.com', 12121212, 1),
-('Vampira', 'vamp@gmai.com', 13131313, 0),
-('Tempestade', 'tempestade@gmail.com', 14141414, 0),
-('Magneto', 'erik@gmail.com', 15151515, 1),
-('Mistica', 'raven@gmail.com', 16161616, 0),
-('Cyclope', 'summers@gmail.com', 18181818, 0),
-('Jean Gray', 'jean@gmail.com', 17171717, 1),
-('Fera', 'ph@gmail.com', 20202020, 0),
-('Colosso', 'peter@gmailcom', 21212121, 1),
-('Juggernaut', 'cain@gmail.com', 22222222, 0),
-('Feiticeira escarlate', 'wanda@gmail.com', 23232323, 1),
-('Mercurio', 'pietro@gmail.com', 24242424, 0),
-('X-23', 'laura@gmai.com', 25252525, 1);
-
---
--- Extraindo dados da tabela `usuariobiblioteca`
---
-
-INSERT INTO `usuario_biblioteca` (`biblioteca_id`, `usuario_id`) VALUES
+('Logan', 'wolverine@gmail.com', 12121212, 'ativo'),
+('Xavier', 'charles@gmail.com', 12121212, 'ativo'),
+('Vampira', 'vamp@gmai.com', 13131313, 'inativo'),
+('Tempestade', 'tempestade@gmail.com', 14141414, 'inativo'),
+('Magneto', 'erik@gmail.com', 15151515, 'ativo'),
+('Mistica', 'raven@gmail.com', 16161616, 'inativo'),
+('Cyclope', 'summers@gmail.com', 18181818, 'ativo'),
+('Jean Gray', 'jean@gmail.com', 17171717, 'ativo'),
+('Fera', 'ph@gmail.com', 20202020, 'ativo'),
+('Colosso', 'peter@gmailcom', 21212121, 'ativo'),
+('Juggernaut', 'cain@gmail.com', 22222222, 'inativo'),
+('Feiticeira escarlate', 'wanda@gmail.com', 23232323, 'ativo'),
+('Mercurio', 'pietro@gmail.com', 24242424, 'ativo'),
+('X-23', 'laura@gmai.com', 25252525, 'ativo');
 
 
 
