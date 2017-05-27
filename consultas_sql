@@ -1,8 +1,33 @@
-
+﻿332363
 CONSULTAS
 
-	1) EM QUAIS BIBLIOTECAS/SEÇÃO DETERMINADO LIVRO ESTÁ DISPONIVEL PARA EMPRÉSTIMO?
-		UTILIDADE: AUXILIAR O USUÁRIO A ENCONTRAR O LIVRO DENTRO DA BIBLIOTECA
+	1) DADO UM ID DE LIVRO, EXIBIR OS EXEMPLARES DISPONÍVEIS PARA LOCAÇÃO E AS RESPECTIVAS SEÇÕES E BIBLIOTECAS.
+		UTILIDADE: AUXILIAR O USUÁRIO A ENCONTRAR O LIVRO DENTRO DO GRUPO DE BIBLIOTECAS
+	
+
+
+
+SELECT 
+    l.titulo,
+    b.nome as biblioteca,
+    s.nome as secao,
+    count(e.id) as quantidade_disponivel
+FROM
+    biblioteca b
+    left outer join secao_biblioteca sb on sb.biblioteca_id = b.id
+    left outer join secao s on sb.secao_id = s.id
+    left outer join exemplar e on e.secao_biblioteca_id = sb.id
+    left outer join livro l on e.livro_id = l.id
+WHERE
+    l.id = 1
+    and e.status = 'devolvido'
+GROUP BY
+    b.id
+ORDER BY
+    quantidade_disponivel DESC
+
+
+
 
 	2) VALOR TOTAL DA MULTA DEVIDA POR DETERMINADO USUÁRIO AO GRUPO DE BIBLIOTECAS, DISCRIMINANDO O TOTAL DEVIDO PARA CADA BIBLIOTECA. (GROUP BY)
 		UTILIDADE: PERMITIR QUE QUALQUER BIBLIOTECA DO GRUPO FORNEÇA UMA CERTIDAO DE NADA CONSTA AO USUÁRIO, CASO ELE NÃO ESTEJA EM DÉBITO
@@ -33,6 +58,25 @@ CONSULTAS
 	
 	11) DADA UMA PALAVRA CHAVE, RETORNAR OS LIVROS QUE A CONTÉM
 		UTILIDADE: PESQUISA DE LIVROS
+
+
+SELECT
+    l.titulo as livro,
+    l.ano as ano,
+    e.nome as editora,
+    pc.palavra as palavra
+FROM
+    livro l
+    left outer join editora e on l.editora_id = e.id
+    left outer join palavra_chave_livro pcl on pcl.livro_id = l.id
+    left outer join palavra_chave pc on pcl.palavra_chave_id = pc.id
+WHERE
+    pc.palavra in ('leão', 'informação')
+ORDER BY 
+    l.titulo ASC
+
+
+
 		
 	12) DADO UMA DATA, RETORNAR OS EMPRÉSTIMOS REALIZADOS
 		UTILIDADE: AUDITORIA DE EMPRÉSTIMOS
