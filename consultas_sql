@@ -37,6 +37,33 @@ ORDER BY
 	5) VALOR RECEBIDO POR DETERMIANDO FUNCIONARIO EM DETERMINADO DIA. (SUM)
 		UTILIDADE: PRESTAÇÃO DE CONTAS DO VALOR RECEBIDO DURANTE O DIA.
 
+SELECT
+	f.nome,
+    sum(m.valor)
+FROM
+	multa m
+    left outer join funcionario f on m.funcionario_id = f.id
+WHERE
+	f.id in 
+    (
+        SELECT 
+        	fu.id 
+        FROM 
+        	funcionario fu
+        	left outer join departamento de on fu.departamento_id = de.id
+        	left outer join biblioteca bi on de.biblioteca_id = bi.id
+        WHERE
+        	bi.id = 2
+    )
+    and m.data_recebimento = CURRENT_DATE
+GROUP BY
+	f.id
+ORDER BY
+	f.nome
+
+
+
+
 	6) TOP 5 EDITORAS DO GRUPO (CONSIDERANDO EMPRÉSTIMOS DE SEUS LIVROS NO ÚLTIMO ANO).
 		UTILIDADE: VERIFICAR QUAIS SÃO AS EDITORAS QUE FORNECEM OS LIVROS QUE MAIS AGRADAM OS USUÁRIOS
 
@@ -116,22 +143,22 @@ ORDER BY
 		UTILIDADE: AUDITORIA DE EMPRÉSTIMOS
 
 SELECT
-    u.nome as usuario,
-    l.titulo as livro,
-    ex.id as exemplar_id,
     e.data_emprestimo as data_emprestimo,
-    adddate(e.data_emprestimo, INTERVAL b.emprestimo_dias day) as data_prevista_devolucao
+    l.titulo as livro,
+    count(e.id) as quantidade_emprestimos_realizados
 FROM
     emprestimo e
-    left outer join usuario u on e.usuario_id = u.id
     left outer join exemplar ex on e.exemplar_id = ex.id
     left outer join livro l on ex.livro_id = l.id
     left outer join secao_biblioteca sb on ex.secao_biblioteca_id = sb.id
     left outer join biblioteca b on sb.biblioteca_id = b.id
 WHERE
-    u.id = 3
-ORDER BY
+    e.data_emprestimo = CURRENT_DATE
+    and b.id = 2
+GROUP BY
     l.titulo
+ORDER BY
+	l.titulo
 
 
 		
