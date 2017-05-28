@@ -1,0 +1,17 @@
+Como instalar o Xampp.
+
+Baixar o instalador de acordo com o sistema operacional.
+
+Link:
+
+https://www.apachefriends.org/pt_br/index.html
+
+No Windows:
+
+-Após instalar o programa, abra o XAMPP Control Panel como administrador e clique no "X" vermelho para instalar o Mysql. Agora basta clicar em "start" para iniciar o serviço.
+
+-Com o navegador aberto, digite:
+
+http://localhost/
+
+-Clique na aba phpMyAdmin.
