@@ -179,7 +179,7 @@ CREATE TABLE IF NOT EXISTS emprestimo (
   funcionario_id int(11) NOT NULL,
   usuario_id int(11) NOT NULL,
   data_emprestimo datetime NOT NULL,
-  data_devolucao datetime NOT NULL,
+  data_devolucao datetime DEFAULT NULL,
   valor_multa decimal(3,2) NOT NULL DEFAULT 0.00,
   PRIMARY KEY (id),
   FOREIGN KEY (exemplar_id) REFERENCES exemplar (id),
