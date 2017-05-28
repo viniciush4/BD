@@ -20,8 +20,8 @@
 
 
 
-tabela `autor` -> varchar, varchar, int.
-INSERT INTO autor (nome, email, celular) VALUES (' ', ' ', 1);
+tabela `autor` -> varchar, varchar.
+INSERT INTO autor (nome, email) VALUES (' ', ' ');
 
 tabela `autor_livro` -> int, int.
 INSERT INTO autor_livro (autor_id, livro_id) VALUES (1, 1);
