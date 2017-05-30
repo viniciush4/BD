@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS biblioteca (
   id int(11) NOT NULL AUTO_INCREMENT,
   nome varchar(50) COLLATE utf8_bin NOT NULL,
   emprestimo_dias int(11) NOT NULL DEFAULT 15,
-  multa_diaria decimal(2,2) NOT NULL DEFAULT 0.00,
+  multa_diaria decimal(4,2) NOT NULL DEFAULT 0.00,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 

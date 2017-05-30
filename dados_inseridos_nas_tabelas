@@ -20,57 +20,114 @@
 
 
 
-tabela `autor` -> varchar, varchar.
-INSERT INTO autor (nome, email) VALUES (' ', ' ');
+--
+--tabela `biblioteca` -> varchar, int, decimal.
+--INSERT INTO biblioteca (nome, emprestimo_dias, multa_diaria) VALUES ('', 1, 1.1);
+--
 
-tabela `autor_livro` -> int, int.
-INSERT INTO autor_livro (autor_id, livro_id) VALUES (1, 1);
+--
+--tabela `secao` -> varchar.
+--INSERT INTO secao (nome) VALUES ('');
+--
 
-tabela `biblioteca` -> varchar, int, int.
-INSERT INTO biblioteca (nome, emprestimo_dias, multa_diaria) VALUES (' ', 1, 1);
+--
+--tabela `autor` -> varchar, varchar.
+--INSERT INTO autor (nome, email) VALUES ('', '');
+--
 
-tabela `departamento` -> int, varchar.
-INSERT INTO departamento (biblioteca_id, nome) VALUES (1, ' ');
 
-tabela `editora` -> varchar, varchar.
-INSERT INTO editora (nome, email) VALUES (' ', ' ');
+--
+--tabela `editora` -> varchar, varchar.
+--INSERT INTO editora (nome, email) VALUES ('', '');
+--
 
-tabela `emprestimo` -> int, int, int.
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id) VALUES (1, 1, 1);
+--
+--tabela `usuario` -> varchar, varchar, varchar, enum, datetime.
+--INSERT INTO usuario (nome, email, celular, status, data_nascimento) VALUES ('', '', '', 'ativo', '1/1/1');
+--
 
-tabela `exemplar` -> int, int, datetime, tinyint.
-INSERT INTO exemplar (livro_id, secao_biblioteca_id, datacadastro, emprestado) VALUES (1, 1, '1/1/1', 1);
+--
+--tabela `livro` -> int, varchar, year, varchar.
+--INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (1, '', '', '');
+--
 
-tabela `funcionario` -> int, varchar, varchar, int, tinyint, datetime.
-INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (1, ' ', ' ', 1, 1, '1/1/1');
+--
+--tabela `palavra_chave` -> varchar.
+--INSERT INTO palavra_chave (palavra) VALUES ('');
+--
 
-tabela `livro` -> int, varchar, year, int.
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (int, ' ', ' ', 1);
+--
+--tabela `autor_livro` -> int, int.
+--INSERT INTO autor_livro (autor_id, livro_id) VALUES (1, 1);
+--
 
-tabela `palavra_chave` -> varchar.
-INSERT INTO palavra_chave (palavra) VALUES (' ');
+--
+--tabela `departamento` -> int, varchar.
+--INSERT INTO departamento (biblioteca_id, nome) VALUES (1, '');
+--
 
-tabela `palavra_chave_livro`
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (1, 1);
+--
+--tabela `secao_biblioteca` -> int, int.
+--INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (1, 1);
+--
 
-tabela `reserva` -> int, int, datetime, tinyint.
-INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (1, 1, '1/1/1', 1);
+--
+--tabela `exemplar` -> int, int, datetime, enum.
+--INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (1, 1, '1/1/1', 'devolvido');
+--
 
-tabela `secao`
-INSERT INTO secao (nome) VALUES (' ');
+--
+--tabela `funcionario` -> int, varchar, varchar, varchar, enum, datetime.
+--INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (1, '', '', '', 'ativo', '1/1/1');
+--
 
-tabela `secao_biblioteca` -> int, int.
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (1, 1);
+--
+--tabela `emprestimo` -> int, int, int, datetime, datetime.
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (1, 1, 1, '1/1/1', '1/1/1');
+--
 
-tabela `usuario` -> varchar, varchar, int, tinyint.
-INSERT INTO usuario (nome, email, celular, status) VALUES (' ', ' ', 1, 1);
+--
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (12, 8, 13, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (6, 10, 3, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (13, 7, 4, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (8, 5, 6, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (14, 1, 11, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (3, 4, 10, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (5, 7, 1, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (9, 15, 2, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (15, 1, 15, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (2, 12, 2, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (1, 8, 8, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (11, 11, 9, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (4, 9, 14, '1/1/1', '1/1/1', 1.1);
+--INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo, data_devolucao) VALUES (10, 4, 1, '1/1/1', '1/1/1', 1.1);
+--
 
-tabela `usuario_biblioteca` -> int, int.
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (1, 1);
 
-tabela 'multa' -> int, int, date, decimal(3,2)
-INSERT INTO multa (funcionario_id, emprestimo_id, data_recebimento, valor) VALUES (1, 1, '1/1/1', 1);
+--
+--tabela 'multa' -> int, int, datetime, decimal.
+--INSERT INTO multa (funcionario_id, emprestimo_id, data_recebimento, valor) VALUES (1, 1, '1/1/1', 1.1);
+--
 
+
+--
+--tabela `palavra_chave_livro` -> int, int.
+--INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (1, 1);
+--
+
+
+
+--
+--tabela `reserva` -> int, int, datetime, enum.
+--INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (1, 1, '1/1/1', 'ativa');
+--
+
+
+
+--
+--tabela `usuario_biblioteca` -> int, int.
+--INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (1, 1);
+--
 
 
 -----------A partir daqui o que eu comecei a criar
