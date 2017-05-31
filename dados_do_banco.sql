@@ -1,3 +1,7 @@
+--
+-- tabela `biblioteca` -> varchar, int, decimal.
+--
+
 INSERT INTO biblioteca (nome, emprestimo_dias, multa_diaria) VALUES ('BIBLIOTECA DA OFICINA', 3, 10.00);
 INSERT INTO biblioteca (nome, emprestimo_dias, multa_diaria) VALUES ('BIBLIOTECA DA PADARIA', 1, 2.00);
 INSERT INTO biblioteca (nome, emprestimo_dias, multa_diaria) VALUES ('BIBLIOTECA DO SUPER MERCADO', 5, 15.00);
@@ -14,6 +18,9 @@ INSERT INTO biblioteca (nome, emprestimo_dias, multa_diaria) VALUES ('BIBLIOTECA
 INSERT INTO biblioteca (nome, emprestimo_dias, multa_diaria) VALUES ('BIBLIOTECA DA PONTE', 2, 6.00);
 INSERT INTO biblioteca (nome, emprestimo_dias, multa_diaria) VALUES ('BIBLIOTECA DA PIZZARIA', 13, 3.00);
 
+--
+-- tabela `secao` -> varchar.
+--
 
 INSERT INTO secao (nome) VALUES ('ARTES');
 INSERT INTO secao (nome) VALUES ('AMBIENTE');
@@ -31,6 +38,9 @@ INSERT INTO secao (nome) VALUES ('TECNOLOGIA');
 INSERT INTO secao (nome) VALUES ('VIAGENS');
 INSERT INTO secao (nome) VALUES ('OUTROS');
 
+--
+-- tabela `autor` -> varchar, varchar.
+--
 
 INSERT INTO autor (nome, email) VALUES ('CLAIRE BENNET', 'CLAIRE@EMAIL.COM');
 INSERT INTO autor (nome, email) VALUES ('PETER PETRELLI', 'PETER@EMAIL.COM');
@@ -48,6 +58,9 @@ INSERT INTO autor (nome, email) VALUES ('SYLAR', 'SYLAR@EMAIL.COM');
 INSERT INTO autor (nome, email) VALUES ('ANGELA PETRELLI', 'ANGELA@EMAIL.COM');
 INSERT INTO autor (nome, email) VALUES ('MAYA HERRERA', 'MAYA@EMAIL.COM');
 
+--
+-- tabela `editora` -> varchar, varchar.
+--
 
 INSERT INTO editora (nome, email) VALUES ('EDITORA COMETA', 'COMETA@EMAIL.COM');
 INSERT INTO editora (nome, email) VALUES ('EDITORA SEM GRANA', 'GRANA@EMAIL.COM');
@@ -65,6 +78,9 @@ INSERT INTO editora (nome, email) VALUES ('EDITORA ESTAMOS JUNTOS', 'JUNTOS@EMAI
 INSERT INTO editora (nome, email) VALUES ('EDITORA VAZIA', 'VAZIA@EMAIL.COM');
 INSERT INTO editora (nome, email) VALUES ('EDITORA VENCIDA', 'VENCIDA@EMAIL.COM');
 
+--
+-- tabela `usuario` -> varchar, varchar, varchar, enum, datetime.
+--
 
 INSERT INTO usuario (nome, email, celular, status, data_nascimento) VALUES ('LOGAN', 'WOLVERINE@EMAIL.COM', '946541346', 'ativo', '1974-12-01');
 INSERT INTO usuario (nome, email, celular, status, data_nascimento) VALUES ('XAVIER', 'CHARLES@EMAIL.COM', '916581328', 'ativo', '1960-09-03');
@@ -82,23 +98,29 @@ INSERT INTO usuario (nome, email, celular, status, data_nascimento) VALUES ('MER
 INSERT INTO usuario (nome, email, celular, status, data_nascimento) VALUES ('HULK', 'BRUCE@EMAIL.COM', '954651321', 'ativo', '1987-07-02');
 INSERT INTO usuario (nome, email, celular, status, data_nascimento) VALUES ('HOMEM DE FERRO', 'TONY@EMAIL.COM', '987946541', 'ativo', '1987-08-17');
 
+--
+-- tabela `livro` -> int, varchar, year, varchar.
+--
 
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (9, 'APRENDA A LUTAR DORMINDO', '2005', '978–972–41–4427–6');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (6, 'POEIRA EM ALTO MAR', '1980', '99921-58-10-7');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (8, 'A BICICLETA DESGOVERNADA', '2001', '9971-5-0210-0');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (11, 'CANTE DE BOCA FECHADA', '2014', '972-662-905-4');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (1, 'COMO PASSAR EM BANCO DE DADOS', '1999', '85-359-0277-5');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (11, 'A MORDIDA FATAL DA MARIA BANGUELA', '1987', '0-684-84328-5');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (14, 'O LIVRO SOBRE TUDO', '2000', '0-8044-2957-X');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (7, 'COMPRE SEM TER DINHEIRO', '2007', '0-85131-041-9');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (3, 'COZINHE TUDO EM 3 MINUTOS', '2011', '0-943396-04-2');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (2, 'O SEGREDO DA COMPUTACAO', '1992', '0-9752298-0-X');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (2, 'CONTANDO ATÉ O INFINITO', '2017', '0-9254623-5-2');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (15, 'DIRIJA DE OLHOS FECHADOS', '1996', '0-9499465-3-X');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (5, 'SEJA PRESIDENTE POR UM DIA', '1984', '0-9465233-6-X');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (13, 'A VERDADEIRA FORCA DAS FORMIGAS', '1971', '85-389-04563-7');
-INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (10, 'A CURA DO CANCER', '2010', '85-359-4227-8');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (9, 'APRENDA A LUTAR DORMINDO', '2005', '9789724144276');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (6, 'POEIRA EM ALTO MAR', '1980', '9992158157123');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (8, 'A BICICLETA DESGOVERNADA', '2001', '9971502100987');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (11, 'CANTE DE BOCA FECHADA', '2014', '9726629054157');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (1, 'COMO PASSAR EM BANCO DE DADOS', '1999', '8535902775875');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (11, 'A MORDIDA FATAL DA MARIA BANGUELA', '1987', '0684843285134');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (14, 'O LIVRO SOBRE TUDO', '2000', '080442957X587');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (7, 'COMPRE SEM TER DINHEIRO', '2007', '0851310419645');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (3, 'COZINHE TUDO EM 3 MINUTOS', '2011', '0943396042458');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (2, 'O SEGREDO DA COMPUTACAO', '1992', '097522980X358');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (2, 'CONTANDO ATÉ O INFINITO', '2017', '0925462352134');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (15, 'DIRIJA DE OLHOS FECHADOS', '1996', '094994653X425');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (5, 'SEJA PRESIDENTE POR UM DIA', '1984', '094652336X875');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (13, 'A VERDADEIRA FORCA DAS FORMIGAS', '1971', '8538904563725');
+INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (10, 'A CURA DO CANCER', '2010', '8535942278269');
 
+--
+-- tabela `palavra_chave` -> varchar.
+--
 
 INSERT INTO palavra_chave (palavra) VALUES ('LUTAR');
 INSERT INTO palavra_chave (palavra) VALUES ('MAR');
@@ -116,6 +138,9 @@ INSERT INTO palavra_chave (palavra) VALUES ('PASSAR');
 INSERT INTO palavra_chave (palavra) VALUES ('DADOS');
 INSERT INTO palavra_chave (palavra) VALUES ('MINUTOS');
 
+--
+-- tabela `autor_livro` -> int, int.
+--
 
 INSERT INTO autor_livro (autor_id, livro_id) VALUES (9, 2);
 INSERT INTO autor_livro (autor_id, livro_id) VALUES (3, 7);
@@ -133,6 +158,9 @@ INSERT INTO autor_livro (autor_id, livro_id) VALUES (6, 9);
 INSERT INTO autor_livro (autor_id, livro_id) VALUES (3, 4);
 INSERT INTO autor_livro (autor_id, livro_id) VALUES (8, 5);
 
+--
+-- tabela `departamento` -> int, varchar.
+--
 
 INSERT INTO departamento (biblioteca_id, nome) VALUES (9, 'DEPARTAMENTO DE DOACAO');
 INSERT INTO departamento (biblioteca_id, nome) VALUES (7, 'DEPARTAMENTO DE ATENDIMENTO GERAL');
@@ -150,6 +178,9 @@ INSERT INTO departamento (biblioteca_id, nome) VALUES (8, 'DEPARTAMENTO DE CONTR
 INSERT INTO departamento (biblioteca_id, nome) VALUES (12, 'DEPARTAMENTO MARKETING');
 INSERT INTO departamento (biblioteca_id, nome) VALUES (15, 'DEPARTAMENTO DE CONTROLE DE ESTOQUE');
 
+--
+-- tabela `secao_biblioteca` -> int, int.
+--
 
 INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (9, 12);
 INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (15, 1);
@@ -167,6 +198,9 @@ INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (11, 2);
 INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (6, 11);
 INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (3, 8);
 
+--
+-- tabela `exemplar` -> int, int, datetime, enum.
+--
 
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (11, 9, '2017-03-13', 'devolvido');
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (15, 10, '2016-01-02', 'emprestado');
@@ -184,10 +218,13 @@ INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALU
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (1, 12, '2015-10-10', 'devolvido');
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (6, 11, '2016-11-07', 'emprestado');
 
+--
+-- tabela `funcionario` -> int, varchar, varchar, varchar, enum, datetime.
+--
 
 INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (8, 'CLARK KENT', 'CLARK@EMAIL.COM', '964689646', 'ativo', '2001-02-11');
 INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (12, 'CHLOE SULLIVAN', 'CHLOE@EMAIL.COM', '915648899', 'ativo', '2012-05-02');
-INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (3, 'LEX LUTHOR', 'LEX@EMAIL.COM', '922224548', 'inativo', '2013-12-05');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (3, 'LEX LUTHOR', 'LEX@EMAIL.COM', '922224548', 'ativo', '2013-12-05');
 INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (6, 'LANA LANG', 'LANA@EMAIL.COM', '982646659', 'ativo', '1999-03-09');
 INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (14, 'LOIS LANE', 'LOIS@EMAIL.COM', '945782662', 'ativo', '2016-08-22');
 INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (2, 'LIONEL LUTHOR', 'LIONEL@EMAIL.COM', '934916546', 'ativo', '2005-11-29');
@@ -201,6 +238,9 @@ INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_con
 INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (12, 'JASON TEAGUE', 'JASON@EMAIL.COM', '935468466', 'ativo', '2012-07-29');
 INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (13, 'ZOD', 'ZOD@EMAIL.COM', '916548138', 'ativo', '2001-01-01');
 
+--
+-- tabela `emprestimo` -> int, int, int, datetime, datetime.
+--
 
 INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (2, 2, 9, '2017-01-01');
 
