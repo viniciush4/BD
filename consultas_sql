@@ -183,19 +183,63 @@ HAVING
 		UTILIDADE: BALANÇO PATRIMONIAL
 
 SELECT
-	b.nome as biblioteca,
+    b.nome as biblioteca,
     count(e.id) as quantidade_exemplares
 FROM
-	exemplar e
+    exemplar e
     left outer join secao_biblioteca sb on e.secao_biblioteca_id = sb.id
     left outer join biblioteca b on sb.biblioteca_id = b.id
 GROUP BY
-	b.id
+    b.id
 HAVING
-	count(e.id) > 1
+    count(e.id) > 1
 
 
 	
 	15) BIBLIOTECA MAIS POPULAR (MÉDIA DE EMPRÉSTIMOS POR USUÁRIO, OU SEJA, QUANT. DE EMPRESTIMOS / QUANT. DE USUÁRIOS)
 		UTILIDADE: ESTATÍSTICAS - COMPARAR AS BIBLIOTECAS DO GRUPO 
+
+SELECT
+    b.nome as biblioteca,
+    (case when query_emprestimos.quantidade_emprestimos is null then 0 else query_emprestimos.quantidade_emprestimos end) as quantidade_emprestimos,
+    (case when query_usuarios.quantidade_usuarios_ativos is null then 0 else query_usuarios.quantidade_usuarios_ativos end) as quantidade_usuarios,
+    (case when query_emprestimos.quantidade_emprestimos is null then 0 else query_emprestimos.quantidade_emprestimos end) / 
+    (case when query_usuarios.quantidade_usuarios_ativos is null then 0 else query_usuarios.quantidade_usuarios_ativos end) as emprestimos_por_usuario
+FROM
+    biblioteca b
+    left outer join
+    (
+        # Quantidade de usuarios ativos por biblioteca
+        SELECT
+            b.id as biblioteca_id,
+            count(u.id) as quantidade_usuarios_ativos
+        FROM
+            usuario u
+            left outer join usuario_biblioteca ub on ub.usuario_id = u.id
+            left outer join biblioteca b on ub.biblioteca_id = b.id
+        WHERE
+            u.status = 'ativo'
+        GROUP BY
+            b.id
+    ) query_usuarios on b.id = query_usuarios.biblioteca_id
+    left outer join
+    (
+	   # Quantidade de emprestimos por biblioteca (considerando o ultimo ano)
+        SELECT
+            b.id as biblioteca_id,
+            count(e.id) as quantidade_emprestimos
+        FROM
+            emprestimo e
+            left outer join exemplar ex on e.exemplar_id = ex.id
+            left outer join secao_biblioteca sb on ex.secao_biblioteca_id = sb.id
+            left outer join biblioteca b on sb.biblioteca_id = b.id
+        WHERE
+            e.data_emprestimo >= adddate(CURRENT_DATE, INTERVAL -1 year)
+        GROUP BY
+            b.id
+    ) query_emprestimos on b.id = query_emprestimos.biblioteca_id	
+ORDER BY
+    emprestimos_por_usuario DESC
+		
+		
 
