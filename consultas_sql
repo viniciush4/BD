@@ -28,6 +28,41 @@ ORDER BY
 	2) VALOR TOTAL DA MULTA DEVIDA POR DETERMINADO USUÁRIO AO GRUPO DE BIBLIOTECAS, DISCRIMINANDO O TOTAL DEVIDO PARA CADA BIBLIOTECA. (GROUP BY)
 		UTILIDADE: PERMITIR QUE QUALQUER BIBLIOTECA DO GRUPO FORNEÇA UMA CERTIDAO DE NADA CONSTA AO USUÁRIO, CASO ELE NÃO ESTEJA EM DÉBITO
 
+
+==============================! FALTA TERMINAR !==================================================
+
+SELECT
+	query_multa_devida.emprestimo_id as emprestimo_id,
+    query_multa_devida.valor_multa as valor_multa_devida,
+    coalesce(query_multa_paga.valor_multa_paga, 0) as valor_multa_paga
+FROM
+(
+        SELECT
+        e.id as emprestimo_id,
+        e.valor_multa as valor_multa
+    FROM
+        emprestimo e
+    WHERE
+        e.usuario_id = 9
+) query_multa_devida
+left outer join
+(
+        SELECT
+        e.id as emprestimo_id,
+        sum(m.valor) as valor_multa_paga
+    FROM
+        emprestimo e
+        left outer join multa m on m.emprestimo_id = e.id
+    WHERE
+        e.usuario_id = 9
+    GROUP BY
+        e.id
+) query_multa_paga on query_multa_devida.emprestimo_id = query_multa_paga.emprestimo_id
+    
+============================================================================================================
+
+
+    
 	3) DADO UM ID DE LIVRO, RETORNAR A MÉDIA DE IDADE DOS USUÁRIOS QUE PEGARAM O LIVRO NO GRUPO DE BIBLIOTECAS
 		UTILIDADE: LEVANTAMENTO DE PREFERENCIAS/PERFIL DOS USUÁRIOS
 
