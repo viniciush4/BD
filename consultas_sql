@@ -162,8 +162,22 @@ ORDER BY
 
 
 		
-	13) QUANTIDADE DE FUNCIONÁRIOS POR BIBLIOTECA
+	13) RETORNAR O NOME E A QUANTIDADE DE FUNCIONARIOS DAS BIBLIOTECAS QUE POSSUEM MAIS DE UM FUNCIONÁRIO
 		UTILIDADE: BALANÇO
+		
+SELECT
+    b.nome as biblioteca,
+    count(f.id) as quantidade_funcionarios
+FROM
+	funcionario f
+    left outer join departamento d on f.departamento_id = d.id
+    left outer join biblioteca b on d.biblioteca_id = b.id
+GROUP BY
+	b.id
+HAVING
+	count(f.id) > 1
+	
+	
 	
 	14) QUANTIDADE DE LIVROS POR BIBLIOTECA
 		UTILIDADE: BALANÇO PATRIMONIAL
