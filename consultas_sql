@@ -179,8 +179,22 @@ HAVING
 	
 	
 	
-	14) QUANTIDADE DE LIVROS POR BIBLIOTECA
+	14) RETORNAR O NOME E A QUANTIDADE DE EXEMPLARES DAS BIBLIOTECAS QUE POSSUEM MAIS DE UM EXEMPLAR
 		UTILIDADE: BALANÇO PATRIMONIAL
+
+SELECT
+	b.nome as biblioteca,
+    count(e.id) as quantidade_exemplares
+FROM
+	exemplar e
+    left outer join secao_biblioteca sb on e.secao_biblioteca_id = sb.id
+    left outer join biblioteca b on sb.biblioteca_id = b.id
+GROUP BY
+	b.id
+HAVING
+	count(e.id) > 1
+
+
 	
 	15) BIBLIOTECA MAIS POPULAR (MÉDIA DE EMPRÉSTIMOS POR USUÁRIO, OU SEJA, QUANT. DE EMPRESTIMOS / QUANT. DE USUÁRIOS)
 		UTILIDADE: ESTATÍSTICAS - COMPARAR AS BIBLIOTECAS DO GRUPO 
