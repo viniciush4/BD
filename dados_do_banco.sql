@@ -200,6 +200,42 @@ INSERT INTO autor_livro (autor_id, livro_id) VALUES (2, 6);
 INSERT INTO autor_livro (autor_id, livro_id) VALUES (6, 9);
 INSERT INTO autor_livro (autor_id, livro_id) VALUES (3, 4);
 INSERT INTO autor_livro (autor_id, livro_id) VALUES (8, 5);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (2, 16);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (13, 17);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (5, 18);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (1, 19);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (5, 20);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (7, 21);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (12, 22);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (15, 23);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (8, 24);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (4, 25);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (14, 26);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (2, 27);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (6, 28);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (10, 29);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (8, 30);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (11, 31);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (14, 32);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (1, 33);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (5, 34);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (7, 35);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (6, 36);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (13, 37);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (9, 38);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (15, 39);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (1, 40);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (12, 41);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (3, 42);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (6, 43);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (10, 44);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (15, 45);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (2, 46);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (4, 47);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (7, 48);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (3, 49);
+INSERT INTO autor_livro (autor_id, livro_id) VALUES (12, 50);
+
 
 --
 -- tabela `departamento` -> int, varchar.
@@ -207,41 +243,74 @@ INSERT INTO autor_livro (autor_id, livro_id) VALUES (8, 5);
 --
 
 INSERT INTO departamento (biblioteca_id, nome) VALUES (9, 'DEPARTAMENTO DE DOACAO');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (2, 'DEPARTAMENTO DE DOACAO');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (6, 'DEPARTAMENTO DE DOACAO');
 INSERT INTO departamento (biblioteca_id, nome) VALUES (7, 'DEPARTAMENTO DE ATENDIMENTO GERAL');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (11, 'DEPARTAMENTO DE ATENDIMENTO GERAL');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (1, 'DEPARTAMENTO DE ATENDIMENTO GERAL');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (2, 'DEPARTAMENTO DE LIMPEZA');
 INSERT INTO departamento (biblioteca_id, nome) VALUES (1, 'DEPARTAMENTO DE LIMPEZA');
-INSERT INTO departamento (biblioteca_id, nome) VALUES (5, 'DEPARTAMENTO DE ORGANIZACAO');
-INSERT INTO departamento (biblioteca_id, nome) VALUES (4, 'DEPARTAMENTO DE INFORMATICA');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (5, 'DEPARTAMENTO DE LIMPEZA');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (8, 'DEPARTAMENTO DE ORGANIZACAO');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (15, 'DEPARTAMENTO DE ORGANIZACAO');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (10, 'DEPARTAMENTO DE ORGANIZACAO');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (1, 'DEPARTAMENTO DE INFORMATICA');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (6, 'DEPARTAMENTO DE INFORMATICA');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (13, 'DEPARTAMENTO DE INFORMATICA');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (2, 'DEPARTAMENTO DE RECURSOS HUMANOS');
 INSERT INTO departamento (biblioteca_id, nome) VALUES (11, 'DEPARTAMENTO DE RECURSOS HUMANOS');
-INSERT INTO departamento (biblioteca_id, nome) VALUES (2, 'DEPARTAMENTO DE CONTABILIDADE');
-INSERT INTO departamento (biblioteca_id, nome) VALUES (14, 'DEPARTAMENTO DE COMPRAS');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (9, 'DEPARTAMENTO DE RECURSOS HUMANOS');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (8, 'DEPARTAMENTO DE CONTABILIDADE');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (4, 'DEPARTAMENTO DE CONTABILIDADE');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (15, 'DEPARTAMENTO DE CONTABILIDADE');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (5, 'DEPARTAMENTO DE COMPRAS');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (9, 'DEPARTAMENTO DE COMPRAS');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (10, 'DEPARTAMENTO DE COMPRAS');
 INSERT INTO departamento (biblioteca_id, nome) VALUES (3, 'DEPARTAMENTO OPERACIONAL');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (15, 'DEPARTAMENTO OPERACIONAL');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (2, 'DEPARTAMENTO OPERACIONAL');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (1, 'DEPARTAMENTO JURIDICO');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (6, 'DEPARTAMENTO JURIDICO');
 INSERT INTO departamento (biblioteca_id, nome) VALUES (13, 'DEPARTAMENTO JURIDICO');
-INSERT INTO departamento (biblioteca_id, nome) VALUES (6, 'DEPARTAMENTO DE VENDAS');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (2, 'DEPARTAMENTO DE VENDAS');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (7, 'DEPARTAMENTO DE VENDAS');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (12, 'DEPARTAMENTO DE VENDAS');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (1, 'DEPARTAMENTO DE COMUNICACAO');
 INSERT INTO departamento (biblioteca_id, nome) VALUES (8, 'DEPARTAMENTO DE COMUNICACAO');
-INSERT INTO departamento (biblioteca_id, nome) VALUES (8, 'DEPARTAMENTO DE CONTROLE DE QUALIDADE');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (14, 'DEPARTAMENTO DE COMUNICACAO');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (3, 'DEPARTAMENTO DE CONTROLE DE QUALIDADE');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (6, 'DEPARTAMENTO DE CONTROLE DE QUALIDADE');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (15, 'DEPARTAMENTO DE CONTROLE DE QUALIDADE');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (1, 'DEPARTAMENTO MARKETING');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (3, 'DEPARTAMENTO MARKETING');
 INSERT INTO departamento (biblioteca_id, nome) VALUES (12, 'DEPARTAMENTO MARKETING');
-INSERT INTO departamento (biblioteca_id, nome) VALUES (15, 'DEPARTAMENTO DE CONTROLE DE ESTOQUE');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (7, 'DEPARTAMENTO DE CONTROLE DE ESTOQUE');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (10, 'DEPARTAMENTO DE CONTROLE DE ESTOQUE');
+INSERT INTO departamento (biblioteca_id, nome) VALUES (9, 'DEPARTAMENTO DE CONTROLE DE ESTOQUE');
 
 --
 -- tabela `secao_biblioteca` -> int, int.
 -- INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (1, 1);
 --
 
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (9, 12);
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (15, 1);
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (13, 14);
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (7, 5);
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (8, 1);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (1, 12);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (1, 1);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (1, 14);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (2, 5);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (2, 1);
 INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (2, 9);
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (12, 7);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (3, 7);
 INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (3, 6);
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (10, 10);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (3, 10);
 INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (4, 15);
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (14, 4);
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (1, 13);
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (11, 2);
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (6, 11);
-INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (3, 8);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (4, 4);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (4, 13);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (5, 2);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (5, 11);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (5, 8);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (6, 8);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (6, 8);
+INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (6, 8);
 
 --
 -- tabela `exemplar` -> int, int, datetime, enum.
@@ -249,20 +318,20 @@ INSERT INTO secao_biblioteca (secao_id, biblioteca_id) VALUES (3, 8);
 --
 
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (11, 9, '2017-03-13', 'devolvido');
-INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (15, 10, '2016-01-02', 'emprestado');
+INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (15, 10, '2016-01-02', 'devolvido');
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (9, 8, '2000-12-21', 'devolvido');
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (5, 13, '2005-09-19', 'devolvido');
-INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (12, 2, '2012-05-05', 'emprestado');
+INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (12, 2, '2012-05-05', 'devolvido');
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (3, 7, '2014-07-09', 'devolvido');
-INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (13, 4, '2015-10-11', 'emprestado');
+INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (13, 4, '2015-10-11', 'devolvido');
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (8, 6, '2006-11-17', 'devolvido');
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (14, 6, '2013-04-01', 'devolvido');
-INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (2, 3, '2016-12-03', 'emprestado');
+INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (2, 3, '2016-12-03', 'devolvido');
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (7, 14, '2014-09-29', 'devolvido');
-INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (10, 1, '2017-03-25', 'emprestado');
+INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (10, 1, '2017-03-25', 'devolvido');
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (4, 7, '2016-01-18', 'devolvido');
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (1, 12, '2015-10-10', 'devolvido');
-INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (6, 11, '2016-11-07', 'emprestado');
+INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (6, 11, '2016-11-07', 'devolvido');
 
 --
 -- tabela `funcionario` -> int, varchar, varchar, varchar, enum, datetime.
@@ -334,16 +403,48 @@ INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (1, 1, '2017-
 
 INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (5, 1);
 INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (8, 1);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (1, 1);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (5, 2);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (14, 2);
 INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (1, 2);
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (5, 3);
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (14, 4);
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (1, 4);
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (13, 5);
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (6, 6);
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (12, 7);
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (2, 8);
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (7, 9);
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (9, 10);
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (7, 10);
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (15, 11);
-INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (3, 12);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (13, 3);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (6, 3);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (12, 3);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (2, 4);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (7, 4);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (9, 4);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (7, 5);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (15, 5);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (3, 5);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (4, 6);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (7, 6);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (10, 6);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (3, 7);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (2, 7);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (8, 7);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (12, 8);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (14, 8);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (4, 8);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (5, 9);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (1, 9);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (2, 9);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (15, 10);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (10, 10);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (2, 10);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (7, 11);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (4, 11);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (13, 11);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (14, 12);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (5, 12);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (7, 12);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (15, 13);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (1, 13);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (10, 13);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (9, 14);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (6, 14);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (11, 14);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (14, 15);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (4, 15);
+INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (2, 15);
+
+
