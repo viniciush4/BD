@@ -28,38 +28,31 @@ ORDER BY
 	2) VALOR TOTAL DA MULTA DEVIDA POR DETERMINADO USUÁRIO AO GRUPO DE BIBLIOTECAS, DISCRIMINANDO O TOTAL DEVIDO PARA CADA BIBLIOTECA. (GROUP BY)
 		UTILIDADE: PERMITIR QUE QUALQUER BIBLIOTECA DO GRUPO FORNEÇA UMA CERTIDAO DE NADA CONSTA AO USUÁRIO, CASO ELE NÃO ESTEJA EM DÉBITO
 
-
-==============================! FALTA TERMINAR !==================================================
-
 SELECT
-	query_multa_devida.emprestimo_id as emprestimo_id,
-    query_multa_devida.valor_multa as valor_multa_devida,
-    coalesce(query_multa_paga.valor_multa_paga, 0) as valor_multa_paga
+    q1.biblioteca,
+    sum(q1.debito_restante) as debito
 FROM
 (
-        SELECT
+    # Retorna o debito restante de cada emprestimo do usuario
+    SELECT
         e.id as emprestimo_id,
-        e.valor_multa as valor_multa
-    FROM
-        emprestimo e
-    WHERE
-        e.usuario_id = 9
-) query_multa_devida
-left outer join
-(
-        SELECT
-        e.id as emprestimo_id,
-        sum(m.valor) as valor_multa_paga
+        e.valor_multa as valor_multa_devida,
+        sum(m.valor) as valor_multa_paga,
+        e.valor_multa - sum(m.valor) as debito_restante,
+        b.nome as biblioteca
     FROM
         emprestimo e
         left outer join multa m on m.emprestimo_id = e.id
+        left outer join exemplar ex on e.exemplar_id = ex.id
+        left outer join secao_biblioteca sb on ex.secao_biblioteca_id = sb.id
+        left outer join biblioteca b on sb.biblioteca_id = b.id
     WHERE
-        e.usuario_id = 9
+        e.usuario_id = 3
     GROUP BY
         e.id
-) query_multa_paga on query_multa_devida.emprestimo_id = query_multa_paga.emprestimo_id
-    
-============================================================================================================
+) q1
+GROUP BY
+	q1.biblioteca
 
 
     
@@ -106,7 +99,7 @@ ORDER BY
 	
 	
 
-	5) VALOR RECEBIDO POR DETERMIANDO FUNCIONARIO EM DETERMINADO DIA. (SUM)
+	5) DADO UM ID DE BIBLIOTECA, RETORNAR OS VALORES RECEBIDOS PELOS FUNCIONARIOS DA BIBLIOTECA NO DIA ATUAL.
 		UTILIDADE: PRESTAÇÃO DE CONTAS DO VALOR RECEBIDO DURANTE O DIA.
 
 SELECT
@@ -139,9 +132,52 @@ ORDER BY
 	6) TOP 5 EDITORAS DO GRUPO (CONSIDERANDO EMPRÉSTIMOS DE SEUS LIVROS NO ÚLTIMO ANO).
 		UTILIDADE: VERIFICAR QUAIS SÃO AS EDITORAS QUE FORNECEM OS LIVROS QUE MAIS AGRADAM OS USUÁRIOS
 
-	7) VALOR TOTAL DO ACERVO DA BIBLIOTECA. (SUM)
-		UTILIDADE: BALANÇO PATRIMONIAL
-		
+SELECT
+    ed.nome as editora,
+    count(e.id) as quantidade_emprestimos
+FROM
+    editora ed
+    left outer join livro l on l.editora_id = ed.id
+    right outer join exemplar ex on ex.livro_id = l.id
+    right outer join emprestimo e on e.exemplar_id = ex.id 
+WHERE
+	e.data_emprestimo >= adddate(CURRENT_DATE, INTERVAL -1 year)
+GROUP BY
+	ed.id
+ORDER BY
+	count(e.id) DESC
+LIMIT
+	5
+
+
+	7) DADO UM ID DE BIBLIOTECA, RETORNAR OS IDS DE EXEMPLARES DEVOLVIDOS NO DIA ATUAL PARA OS QUAIS NÃO EXISTEM RESERVAS ATIVAS E O NOME DE SUAS RESPECTIVAS SEÇÕES
+		UTILIDADE: NO FIM DO EXPEDIENTE, DEVOLVER À PRTAELEIRA OS LIVROS QUE NÃO POSSUEM RESERVA.
+
+SELECT
+    ex.id as exemplar_id,
+    s.nome as secao
+FROM
+    exemplar ex
+    left outer join emprestimo e on e.exemplar_id = ex.id
+    left outer join secao_biblioteca sb on ex.secao_biblioteca_id = sb.id
+    left outer join secao s on sb.secao_id = s.id
+    left outer join biblioteca b on sb.biblioteca_id = b.id
+WHERE
+	e.data_devolucao = (CURRENT_DATE)
+	and b.nome like 'Berger'
+	and not exists
+    (
+        SELECT
+        	r.id
+        FROM
+        	reserva r
+        WHERE
+        	r.exemplar_id = ex.id
+            and r.status = 'ativa'
+    )
+
+
+	
 	8)  DADO UM ID DE USUÁRIO, RETORNAR OS EMPRÉSTIMOS ATIVOS DO USUÁRIO, INDICANDO NOME DO LIVRO, CÓDIGO DO EXEMPLAR, DATA DE EMPRESTIMO, DATA PREVISTA DE DEVOLUÇÃO E NOME DA BIBLIOTECA.
 		UTILIDADE: FORNECER ESTAS INFORMAÇÕES NO PORTAL DO USUÁRIO, PARA QUE ELE TENHA CONTROLE DOS PRAZOS DE CADA EMPRESTIMO
 	
@@ -273,10 +309,10 @@ HAVING
 
 SELECT
     b.nome as biblioteca,
-    (case when query_emprestimos.quantidade_emprestimos is null then 0 else query_emprestimos.quantidade_emprestimos end) as quantidade_emprestimos,
-    (case when query_usuarios.quantidade_usuarios_ativos is null then 0 else query_usuarios.quantidade_usuarios_ativos end) as quantidade_usuarios,
-    (case when query_emprestimos.quantidade_emprestimos is null then 0 else query_emprestimos.quantidade_emprestimos end) / 
-    (case when query_usuarios.quantidade_usuarios_ativos is null then 0 else query_usuarios.quantidade_usuarios_ativos end) as emprestimos_por_usuario
+    coalesce(query_emprestimos.quantidade_emprestimos, 0) as quantidade_emprestimos,
+    coalesce(query_usuarios.quantidade_usuarios_ativos, 0) as quantidade_usuarios,
+    coalesce(query_emprestimos.quantidade_emprestimos, 0) / 
+    coalesce(query_usuarios.quantidade_usuarios_ativos, 0) as emprestimos_por_usuario
 FROM
     biblioteca b
     left outer join
@@ -309,7 +345,9 @@ FROM
             e.data_emprestimo >= adddate(CURRENT_DATE, INTERVAL -1 year)
         GROUP BY
             b.id
-    ) query_emprestimos on b.id = query_emprestimos.biblioteca_id	
+    ) query_emprestimos on b.id = query_emprestimos.biblioteca_id
+WHERE
+	query_usuarios.quantidade_usuarios_ativos > 0	
 ORDER BY
     emprestimos_por_usuario DESC
 		
