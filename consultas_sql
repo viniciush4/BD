@@ -1,11 +1,50 @@
 
+VIEWS
+
+	1) FORNECE A QUANTIDADE DE USUARIOS POR BIBLIOTECA
+	
+CREATE ALGORITHM = MERGE VIEW v_quantidade_usuarios_ativos AS
+SELECT
+    b.id as biblioteca_id,
+    b.nome as biblioteca,
+    count(u.id) as quantidade_usuarios_ativos
+FROM
+    usuario u
+    left outer join usuario_biblioteca ub on ub.usuario_id = u.id
+    left outer join biblioteca b on ub.biblioteca_id = b.id
+WHERE
+    u.status = 'ativo'
+GROUP BY
+    b.id
+
+
+
+	2) FORNECE A QUANTIDADE DE EMPRESTIMOS NO ULTIMO ANO POR BIBLIOTECA
+	
+CREATE ALGORITHM = MERGE VIEW v_quantidade_emprestimos_no_ultimo_ano AS    
+SELECT
+    b.id as biblioteca_id,
+    b.nome as biblioteca,
+    count(e.id) as quantidade_emprestimos
+FROM
+    emprestimo e
+    left outer join exemplar ex on e.exemplar_id = ex.id
+    left outer join secao_biblioteca sb on ex.secao_biblioteca_id = sb.id
+    left outer join biblioteca b on sb.biblioteca_id = b.id
+WHERE
+    e.data_emprestimo >= adddate(CURRENT_DATE, INTERVAL -1 year)
+GROUP BY
+    b.id
+
+
+
 CONSULTAS
 
-	1) DADO UM ID DE LIVRO, EXIBIR OS EXEMPLARES DISPONÍVEIS PARA LOCAÇÃO E AS RESPECTIVAS SEÇÕES E BIBLIOTECAS.
+	1) DADO UM ID DE LIVRO, EXIBIR OS EXEMPLARES DISPONÍVEIS PARA EMPRESTIMO E AS RESPECTIVAS SEÇÕES E BIBLIOTECAS.
 		UTILIDADE: AUXILIAR O USUÁRIO A ENCONTRAR O LIVRO DENTRO DO GRUPO DE BIBLIOTECAS
 
 SELECT 
-    l.titulo,
+    l.titulo as livro,
     b.nome as biblioteca,
     s.nome as secao,
     count(e.id) as quantidade_disponivel
@@ -25,11 +64,11 @@ ORDER BY
 
 
 
-	2) VALOR TOTAL DA MULTA DEVIDA POR DETERMINADO USUÁRIO AO GRUPO DE BIBLIOTECAS, DISCRIMINANDO O TOTAL DEVIDO PARA CADA BIBLIOTECA. (GROUP BY)
+	2) DADO UM ID DE USUARIO, RETORNAR O TOTAL DE MULTA DEVIDA PARA CADA BIBLIOTECA.
 		UTILIDADE: PERMITIR QUE QUALQUER BIBLIOTECA DO GRUPO FORNEÇA UMA CERTIDAO DE NADA CONSTA AO USUÁRIO, CASO ELE NÃO ESTEJA EM DÉBITO
 
 SELECT
-    q1.biblioteca,
+    q1.biblioteca as biblioteca,
     sum(q1.debito_restante) as debito
 FROM
 (
@@ -103,8 +142,8 @@ ORDER BY
 		UTILIDADE: PRESTAÇÃO DE CONTAS DO VALOR RECEBIDO DURANTE O DIA.
 
 SELECT
-	f.nome,
-    sum(m.valor)
+    f.nome as funcionario,
+    sum(m.valor) as valor_recebido
 FROM
 	multa m
     left outer join funcionario f on m.funcionario_id = f.id
@@ -125,7 +164,6 @@ GROUP BY
 	f.id
 ORDER BY
 	f.nome
-
 
 
 
@@ -207,7 +245,7 @@ ORDER BY
 		UTILIDADE: VERIFICAR POSSIBILIDADE DE ENVIAR LIVRO PARA SEÇÃO "MORTA"
 
 SELECT
-    l.titulo
+    l.titulo as livro
 FROM
 	livro l
 WHERE
@@ -327,45 +365,16 @@ HAVING
 
 SELECT
     b.nome as biblioteca,
-    coalesce(query_emprestimos.quantidade_emprestimos, 0) as quantidade_emprestimos,
-    coalesce(query_usuarios.quantidade_usuarios_ativos, 0) as quantidade_usuarios,
-    coalesce(query_emprestimos.quantidade_emprestimos, 0) / 
-    coalesce(query_usuarios.quantidade_usuarios_ativos, 0) as emprestimos_por_usuario
+    coalesce(qeua.quantidade_emprestimos, 0) as quantidade_emprestimos,
+    coalesce(qua.quantidade_usuarios_ativos, 0) as quantidade_usuarios,
+    coalesce(qeua.quantidade_emprestimos, 0) / 
+    coalesce(qua.quantidade_usuarios_ativos, 0) as emprestimos_por_usuario
 FROM
     biblioteca b
-    left outer join
-    (
-        # Quantidade de usuarios ativos por biblioteca
-        SELECT
-            b.id as biblioteca_id,
-            count(u.id) as quantidade_usuarios_ativos
-        FROM
-            usuario u
-            left outer join usuario_biblioteca ub on ub.usuario_id = u.id
-            left outer join biblioteca b on ub.biblioteca_id = b.id
-        WHERE
-            u.status = 'ativo'
-        GROUP BY
-            b.id
-    ) query_usuarios on b.id = query_usuarios.biblioteca_id
-    left outer join
-    (
-	   # Quantidade de emprestimos por biblioteca (considerando o ultimo ano)
-        SELECT
-            b.id as biblioteca_id,
-            count(e.id) as quantidade_emprestimos
-        FROM
-            emprestimo e
-            left outer join exemplar ex on e.exemplar_id = ex.id
-            left outer join secao_biblioteca sb on ex.secao_biblioteca_id = sb.id
-            left outer join biblioteca b on sb.biblioteca_id = b.id
-        WHERE
-            e.data_emprestimo >= adddate(CURRENT_DATE, INTERVAL -1 year)
-        GROUP BY
-            b.id
-    ) query_emprestimos on b.id = query_emprestimos.biblioteca_id
+    left outer join v_quantidade_usuarios_ativos qua on b.id = qua.biblioteca_id
+    left outer join v_quantidade_emprestimos_no_ultimo_ano qeua on b.id = qeua.biblioteca_id
 WHERE
-	query_usuarios.quantidade_usuarios_ativos > 0	
+	qua.quantidade_usuarios_ativos > 0	
 ORDER BY
     emprestimos_por_usuario DESC
 		
