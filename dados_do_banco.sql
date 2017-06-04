@@ -164,21 +164,56 @@ INSERT INTO livro (editora_id, titulo, ano, isbn) VALUES (2, 'CRONICAS MARCIANAS
 -- INSERT INTO palavra_chave (palavra) VALUES ('');
 --
 
-INSERT INTO palavra_chave (palavra) VALUES ('LUTAR');
+INSERT INTO palavra_chave (palavra) VALUES ('DORMINDO');
 INSERT INTO palavra_chave (palavra) VALUES ('MAR');
-INSERT INTO palavra_chave (palavra) VALUES ('TUDO');
-INSERT INTO palavra_chave (palavra) VALUES ('OLHOS');
-INSERT INTO palavra_chave (palavra) VALUES ('COMPUTACAO');
+INSERT INTO palavra_chave (palavra) VALUES ('DESGOVERNADA');
+INSERT INTO palavra_chave (palavra) VALUES ('FECHADA');
+INSERT INTO palavra_chave (palavra) VALUES ('BANCO');
+INSERT INTO palavra_chave (palavra) VALUES ('MORDIDA');
+INSERT INTO palavra_chave (palavra) VALUES ('LIVRO');
 INSERT INTO palavra_chave (palavra) VALUES ('DINHEIRO');
-INSERT INTO palavra_chave (palavra) VALUES ('BICICLETA');
-INSERT INTO palavra_chave (palavra) VALUES ('BOCA');
-INSERT INTO palavra_chave (palavra) VALUES ('CURA');
-INSERT INTO palavra_chave (palavra) VALUES ('COZINHE');
-INSERT INTO palavra_chave (palavra) VALUES ('DIRIJA');
-INSERT INTO palavra_chave (palavra) VALUES ('APRENDA');
-INSERT INTO palavra_chave (palavra) VALUES ('PASSAR');
-INSERT INTO palavra_chave (palavra) VALUES ('DADOS');
 INSERT INTO palavra_chave (palavra) VALUES ('MINUTOS');
+INSERT INTO palavra_chave (palavra) VALUES ('COMPUTACAO');
+INSERT INTO palavra_chave (palavra) VALUES ('INFINITO');
+INSERT INTO palavra_chave (palavra) VALUES ('OLHOS');
+INSERT INTO palavra_chave (palavra) VALUES ('PRESIDENTE');
+INSERT INTO palavra_chave (palavra) VALUES ('FORMIGAS');
+INSERT INTO palavra_chave (palavra) VALUES ('CURA');
+INSERT INTO palavra_chave (palavra) VALUES ('ESTRANGEIRO');
+INSERT INTO palavra_chave (palavra) VALUES ('TEMPO');
+INSERT INTO palavra_chave (palavra) VALUES ('PROCESSO');
+INSERT INTO palavra_chave (palavra) VALUES ('CONDICAO');
+INSERT INTO palavra_chave (palavra) VALUES ('VIAGEM');
+INSERT INTO palavra_chave (palavra) VALUES ('VINHAS');
+INSERT INTO palavra_chave (palavra) VALUES ('SINOS');
+INSERT INTO palavra_chave (palavra) VALUES ('ILUSOES');
+INSERT INTO palavra_chave (palavra) VALUES ('ESPUMA');
+INSERT INTO palavra_chave (palavra) VALUES ('ESPERANDO');
+INSERT INTO palavra_chave (palavra) VALUES ('NADA');
+INSERT INTO palavra_chave (palavra) VALUES ('LOTUS');
+INSERT INTO palavra_chave (palavra) VALUES ('DIARIO');
+INSERT INTO palavra_chave (palavra) VALUES ('TROPICOS');
+INSERT INTO palavra_chave (palavra) VALUES ('NOVO');
+INSERT INTO palavra_chave (palavra) VALUES ('OITENTA');
+INSERT INTO palavra_chave (palavra) VALUES ('CARECA');
+INSERT INTO palavra_chave (palavra) VALUES ('LOLITA');
+INSERT INTO palavra_chave (palavra) VALUES ('DESERTO');
+INSERT INTO palavra_chave (palavra) VALUES ('FALSOS');
+INSERT INTO palavra_chave (palavra) VALUES ('SOLIDAO');
+INSERT INTO palavra_chave (palavra) VALUES ('SOM');
+INSERT INTO palavra_chave (palavra) VALUES ('METRO');
+INSERT INTO palavra_chave (palavra) VALUES ('MONTANHA');
+INSERT INTO palavra_chave (palavra) VALUES ('CAO');
+INSERT INTO palavra_chave (palavra) VALUES ('BRINCADEIRA');
+INSERT INTO palavra_chave (palavra) VALUES ('DESPREZO');
+INSERT INTO palavra_chave (palavra) VALUES ('NADJA');
+INSERT INTO palavra_chave (palavra) VALUES ('PERSONAGENS');
+INSERT INTO palavra_chave (palavra) VALUES ('GUERRA');
+INSERT INTO palavra_chave (palavra) VALUES ('CAPITAL');
+INSERT INTO palavra_chave (palavra) VALUES ('MARTIN');
+INSERT INTO palavra_chave (palavra) VALUES ('ZERO');
+INSERT INTO palavra_chave (palavra) VALUES ('COSTA');
+INSERT INTO palavra_chave (palavra) VALUES ('MARCIANAS');
 
 --
 -- tabela `autor_livro` -> int, int.
@@ -235,7 +270,6 @@ INSERT INTO autor_livro (autor_id, livro_id) VALUES (4, 47);
 INSERT INTO autor_livro (autor_id, livro_id) VALUES (7, 48);
 INSERT INTO autor_livro (autor_id, livro_id) VALUES (3, 49);
 INSERT INTO autor_livro (autor_id, livro_id) VALUES (12, 50);
-
 
 --
 -- tabela `departamento` -> int, varchar.
@@ -496,7 +530,6 @@ INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALU
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (50, 32, '2012-06-13', 'devolvido');
 INSERT INTO exemplar (livro_id, secao_biblioteca_id, data_cadastro, status) VALUES (50, 32, '2012-06-13', 'devolvido');
 
-
 --
 -- tabela `funcionario` -> int, varchar, varchar, varchar, enum, datetime.
 -- INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (1, '', '', '', 'ativo', '1-1-1');
@@ -516,51 +549,80 @@ INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_con
 INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (12, 'HENRY JIMMY OLSEN', 'HENRY@EMAIL.COM', '995846566', 'ativo', '2015-12-25');
 INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (13, 'WHITNEY FORDMAN', 'WHITNEY@EMAIL.COM', '978465464', 'ativo', '2000-06-26');
 INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (14, 'JASON TEAGUE', 'JASON@EMAIL.COM', '935468466', 'ativo', '2012-07-29');
-INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (15, 'ZOD', 'ZOD@EMAIL.COM', '916548138', 'ativo', '2001-01-01');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (15, 'ZOD', 'ZOD@EMAIL.COM', '946486313', 'ativo', '2001-01-01');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (16, 'CHRIS', 'CHRIS@EMAIL.COM', '989813213', 'ativo', '2002-08-02');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (17, 'ROCHELLE', 'ROCHELLE@EMAIL.COM', '934546489', 'ativo', '2003-07-03');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (18, 'JULIUS', 'JULIUS@EMAIL.COM', '946548742', 'ativo', '2004-06-04');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (19, 'DREW', 'DREW@EMAIL.COM', '945613213', 'ativo', '2005-05-05');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (20, 'TONYA', 'TONYA@EMAIL.COM', '948787465', 'ativo', '2006-04-06');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (21, 'GREG', 'GREG@EMAIL.COM', '931354448', 'ativo', '2007-03-07');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (22, 'JOEY CARUSO', 'CARUSO@EMAIL.COM', '946787897', 'ativo', '2008-02-08');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (23, 'SENHOR OMAR', 'OMAR@EMAIL.COM', '994897465', 'ativo', '2009-01-09');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (24, 'SENHORITA MORELLO', 'MORELLO@EMAIL.COM', '934487897', 'ativo', '2010-02-10');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (25, 'DOC HARRIS', 'DOC@EMAIL.COM', '998789745', 'ativo', '2011-03-11');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (26, 'PERIGO', 'PERIGO@EMAIL.COM', '968787432', 'ativo', '2012-04-12');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (27, 'GOLPE BAIXO', 'GOLPE@EMAIL.COM', '934897956', 'ativo', '2013-05-13');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (28, 'TASHA CLARKSON', 'TASHA@EMAIL.COM', '989879877', 'ativo', '2014-06-14');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (29, 'MONK', 'MONK@EMAIL.COM', '945461321', 'ativo', '2015-07-15');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (30, 'MIKAO', 'MIKAO@EMAIL.COM', '998774654', 'ativo', '2016-08-16');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (31, 'VANESSA', 'VANESSA@EMAIL.COM', '968487465', 'ativo', '2017-09-17');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (32, 'LOUISE CLARKSON', 'CLARKSON@EMAIL.COM', '912156464', 'ativo', '2016-10-18');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (33, 'EDWARDS', 'EDWARDS@EMAIL.COM', '978975643', 'ativo', '2015-11-19');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (34, 'SHEILA RIDENHOUR', 'SHEILA@EMAIL.COM', '967897982', 'ativo', '2014-12-20');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (35, 'NOEL', 'NOEL@EMAIL.COM', '945674867', 'ativo', '2013-11-21');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (36, 'TRIXIE', 'TRIXIE@EMAIL.COM', '934674879', 'ativo', '2012-10-22');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (37, 'GUSTAVO', 'GUSTAVO@EMAIL.COM', '999988545', 'ativo', '2011-09-23');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (38, 'VINICIUS', 'VINICIUS@EMAIL.COM', '913464874', 'ativo', '2010-08-24');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (39, 'LEO', 'LEO@EMAIL.COM', '944987465', 'ativo', '2009-07-25');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (40, 'ISABELA', 'ISABELA@EMAIL.COM', '998789746', 'ativo', '2008-06-26');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (41, 'JESSICA', 'JESSICA@EMAIL.COM', '934878979', 'ativo', '2007-05-27');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (42, 'EMILY', 'EMILY@EMAIL.COM', '924748979', 'ativo', '2006-04-28');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (43, 'IGOR', 'IGOR@EMAIL.COM', '911132154', 'ativo', '2005-03-29');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (44, 'ANDRE', 'ANDRE@EMAIL.COM', '997878879', 'ativo', '2008-02-30');
+INSERT INTO funcionario (departamento_id, nome, email, celular, status, data_contratacao) VALUES (45, 'EDUARDO', 'EDUARDO@EMAIL.COM', '913213544', 'ativo', '2012-01-05');
 
 --
 -- tabela `emprestimo` -> int, int, int, datetime, datetime.
 -- INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (1, 1, 1, '1-1-1');
 --
 
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (1, 12, 9, '2017-01-01');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (5, 3, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (10, 2, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (15, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (20, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (25, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (30, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (35, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (40, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (45, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (50, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (55, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (60, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (65, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (70, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (75, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (80, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (85, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (90, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (95, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (100, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (105, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (110, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (115, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (120, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (125, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (130, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (135, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (140, 1, 1, '1-1-1');
-INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (145, 1, 1, '1-1-1');
-
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (1, 12, 6, '2017-01-01');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (5, 3, 3, '2017-02-02');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (10, 2, 7, '2017-03-03');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (15, 1, 14, '2017-04-05');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (20, 1, 14, '2017-06-01');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (25, 36, 8, '2017-06-03');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (30, 36, 12, '2017-05-07');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (35, 25, 5, '2017-04-08');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (40, 2, 9, '2017-03-09');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (45, 3, 3, '2017-02-10');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (50, 33, 8, '2017-01-11');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (55, 1, 4, '2017-02-12');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (60, 2, 4, '2017-03-13');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (65, 3, 14, '2017-04-14');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (70, 25, 7, '2017-05-15');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (75, 5, 14, '2017-06-01');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (80, 11, 5, '2017-05-16');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (85, 4, 4, '2017-04-17');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (90, 9, 1, '2017-03-18');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (95, 6, 2, '2017-02-19');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (100, 1, 4, '2017-01-20');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (105, 12, 6, '2017-02-21');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (110, 21, 5, '2017-03-22');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (115, 30, 11, '2017-04-23');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (120, 19, 7, '2017-05-24');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (125, 44, 6, '2017-06-01');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (130, 20, 6, '2017-05-25');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (135, 28, 9, '2017-04-26');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (140, 17, 14, '2017-03-27');
+INSERT INTO emprestimo (exemplar_id, funcionario_id, usuario_id, data_emprestimo) VALUES (145, 22, 1, '2017-02-28');
 
 --
 -- tabela 'multa' -> int, int, datetime, decimal.
 -- INSERT INTO multa (funcionario_id, emprestimo_id, data_recebimento, valor) VALUES (1, 1, '1-1-1', 1.1);
 --
 
-INSERT INTO multa (funcionario_id, emprestimo_id, data_recebimento, valor) VALUES (1, 1, '2017-01-01', 1.10);
+INSERT INTO multa (funcionario_id, emprestimo_id, data_recebimento, valor) VALUES (1, 4, '2017-06-05', 60.00);
 
 --
 -- tabela `palavra_chave_livro` -> int, int.
@@ -569,26 +631,65 @@ INSERT INTO multa (funcionario_id, emprestimo_id, data_recebimento, valor) VALUE
 
 INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (1, 1);
 INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (2, 2);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (3, 7);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (4, 12);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (5, 10);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (6, 8);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (7, 3);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (8, 4);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (9, 15);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (10, 9);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (11, 12);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (12, 1);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (13, 5);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (14, 5);
-INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (15, 9);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (3, 3);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (4, 4);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (5, 5);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (6, 6);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (7, 7);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (8, 8);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (9, 9);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (10, 10);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (11, 11);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (12, 12);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (13, 13);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (14, 14);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (15, 15);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (16, 16);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (17, 17);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (18, 18);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (19, 19);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (20, 20);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (21, 21);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (22, 22);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (23, 23);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (24, 24);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (25, 25);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (26, 26);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (27, 27);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (28, 28);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (29, 29);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (30, 30);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (31, 31);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (32, 32);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (33, 33);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (34, 34);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (35, 35);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (36, 36);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (37, 37);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (38, 38);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (39, 39);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (40, 40);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (41, 41);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (42, 42);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (43, 43);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (44, 44);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (45, 45);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (46, 46);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (47, 47);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (48, 48);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (49, 49);
+INSERT INTO palavra_chave_livro (palavra_chave_id, livro_id) VALUES (50, 50);
 
 --
 -- tabela `reserva` -> int, int, datetime, enum.
 -- INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (1, 1, '1-1-1', 'ativa');
 --
 
-INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (1, 1, '2017-01-07', 'ativa');
+INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (1, 10, '2017-01-02', 'ativa');
+INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (10, 4, '2017-03-04', 'ativa');
+INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (25, 2, '2017-06-04', 'ativa');
+INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (40, 7, '2017-02-11', 'ativa');
+INSERT INTO reserva (exemplar_id, usuario_id, data, status) VALUES (50, 3, '2017-01-12', 'ativa');
 
 --
 -- tabela `usuario_biblioteca` -> int, int.
@@ -640,5 +741,3 @@ INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (11, 14);
 INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (14, 15);
 INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (4, 15);
 INSERT INTO usuario_biblioteca (biblioteca_id, usuario_id) VALUES (2, 15);
-
-
