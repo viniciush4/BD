@@ -2,7 +2,7 @@ teste
 
 DESCRIÇÃO DO CONTEXTO:
 
-Manter uma organização que permita fácil acesso às informações de uma biblioteca é a garantia para que esta seja bem avaliada por seus utilizadores. Esta organização só é possível na medida em que sua gestão é informatizada, em sua forma mais eficiente. Isso reflete muito na percepção da qualidade da biblioteca e de seus serviços. Nesse sentido, pretende-se implementar uma estrutura de banco de dados para suprir as necessidades de persistencia de informações de um sistema para gerenciamento de bibliotecas, de acordo com as especificações a seguir.
+Manter uma organização que permita fácil acesso às informações de uma biblioteca é a garantia para que esta seja bem avaliada por seus utilizadores. Esta organização só é possível na medida em que sua gestão é informatizada, em sua forma mais eficiente. Isso reflete muito na percepção da qualidade da biblioteca e de seus serviços. Nesse sentido, pretende-se implementar uma estrutura de banco de dados para suprir as necessidades de persistencia de informações de um sistema para gerenciamento de bibliotecas, de acordo com as especificações a seguir. O sistema apoiará um grupo de bibliotecas que pretendem disponibilizar informações sobre seus acervos umas às outras além de informações sobre usuários.
 
 
 REQUISITOS FUNCIONAIS:
@@ -19,7 +19,7 @@ REQUISITOS FUNCIONAIS:
 		EDITORAS
 		AUTORES	 
 	
-	DEVE SER POSSIVEL AO USUARIO FAZER CONSULTAS AO ACERVO BEM COMO RESERVAS DE LIVROS
+	DEVE SER POSSIVEL AO USUARIO FAZER CONSULTAS AO ACERVO BEM COMO RESERVAR LIVROS
 	
 	DEVE SER POSSIVEL IDENTIFICAR OS USUÁRIOS QUE FIZERAM A RESERVA DE UM DETERMINATO LIVRO
 		
